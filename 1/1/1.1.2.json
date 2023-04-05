@@ -1,0 +1,3559 @@
+[
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:34:05.603359717 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804445.603359717",
+          "frame.time_delta": "0.002245257",
+          "frame.time_delta_displayed": "0.000000000",
+          "frame.time_relative": "1831.607076227",
+          "frame.number": "32459",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0xcd12",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x6fb0",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "43730",
+          "udp.port": "5683",
+          "udp.port": "43730",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2070",
+          "Timestamps": {
+            "udp.time_relative": "0.002245257",
+            "udp.time_delta": "0.002245257"
+          },
+          "udp.payload": "68:84:cf:2e:53:6a:c3:46:5c:2f:3c:25"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "53038",
+          "coap.token": "53:6a:c3:46:5c:2f:3c:25",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "32458",
+          "coap.response_time": "0.002245257"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:34:37.644377580 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804477.644377580",
+          "frame.time_delta": "0.000869763",
+          "frame.time_delta_displayed": "32.041017863",
+          "frame.time_relative": "1863.648094090",
+          "frame.number": "32785",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "2a:86",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0xd6d1",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x65f1",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "40098",
+          "udp.port": "5683",
+          "udp.port": "40098",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2094",
+          "Timestamps": {
+            "udp.time_relative": "0.000869763",
+            "udp.time_delta": "0.000869763"
+          },
+          "udp.payload": "68:84:71:41:a7:77:fb:43:c4:37:85:04"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "28993",
+          "coap.token": "a7:77:fb:43:c4:37:85:04",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "32784",
+          "coap.response_time": "0.000869763"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:34:51.630633362 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804491.630633362",
+          "frame.time_delta": "0.001101477",
+          "frame.time_delta_displayed": "13.986255782",
+          "frame.time_relative": "1877.634349872",
+          "frame.number": "32886",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0xdf08",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x5dba",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "50045",
+          "udp.port": "5683",
+          "udp.port": "50045",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2104",
+          "Timestamps": {
+            "udp.time_relative": "0.001101477",
+            "udp.time_delta": "0.001101477"
+          },
+          "udp.payload": "68:84:82:f4:ab:ca:17:19:db:24:4d:54"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "33524",
+          "coap.token": "ab:ca:17:19:db:24:4d:54",
+          "coap.opt.uri_path_recon": "/living_room",
+          "coap.response_to": "32885",
+          "coap.response_time": "0.001101477"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:35:18.636095143 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804518.636095143",
+          "frame.time_delta": "0.000912433",
+          "frame.time_delta_displayed": "27.005461781",
+          "frame.time_relative": "1904.639811653",
+          "frame.number": "33131",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0xf10f",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x4bb3",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "52542",
+          "udp.port": "5683",
+          "udp.port": "52542",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2133",
+          "Timestamps": {
+            "udp.time_relative": "0.000912433",
+            "udp.time_delta": "0.000912433"
+          },
+          "udp.payload": "58:84:02:d1:3c:34:9a:70:72:64:6d:9c"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "721",
+          "coap.token": "3c:34:9a:70:72:64:6d:9c",
+          "coap.opt.uri_path_recon": "/dining_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:36:08.777912915 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804568.777912915",
+          "frame.time_delta": "0.000894789",
+          "frame.time_delta_displayed": "50.141817772",
+          "frame.time_relative": "1954.781629425",
+          "frame.number": "33653",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "7b:19",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x0475",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x384e",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "42041",
+          "udp.port": "5683",
+          "udp.port": "42041",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2183",
+          "Timestamps": {
+            "udp.time_relative": "0.000894789",
+            "udp.time_delta": "0.000894789"
+          },
+          "udp.payload": "58:84:02:d8:88:a4:16:43:05:41:7d:9e"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "728",
+          "coap.token": "88:a4:16:43:05:41:7d:9e",
+          "coap.opt.uri_path_recon": "/living_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:36:14.907943172 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804574.907943172",
+          "frame.time_delta": "0.001191515",
+          "frame.time_delta_displayed": "6.130030257",
+          "frame.time_relative": "1960.911659682",
+          "frame.number": "33775",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:88",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x04e2",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x37e1",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "58469",
+          "udp.port": "5683",
+          "udp.port": "58469",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2194",
+          "Timestamps": {
+            "udp.time_relative": "0.001191515",
+            "udp.time_delta": "0.001191515"
+          },
+          "udp.payload": "68:84:0f:67:36:74:75:f8:21:30:fc:2a"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "3943",
+          "coap.token": "36:74:75:f8:21:30:fc:2a",
+          "coap.opt.uri_path_recon": "/basic",
+          "coap.response_to": "33774",
+          "coap.response_time": "0.001191515"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:36:19.814281259 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804579.814281259",
+          "frame.time_delta": "0.001093514",
+          "frame.time_delta_displayed": "4.906338087",
+          "frame.time_relative": "1965.817997769",
+          "frame.number": "33795",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x07df",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x34e4",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "47946",
+          "udp.port": "5683",
+          "udp.port": "47946",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2196",
+          "Timestamps": {
+            "udp.time_relative": "0.001093514",
+            "udp.time_delta": "0.001093514"
+          },
+          "udp.payload": "68:84:11:e3:e7:a7:67:3e:ac:3f:ae:18"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "4579",
+          "coap.token": "e7:a7:67:3e:ac:3f:ae:18",
+          "coap.opt.uri_path_recon": "/main_door",
+          "coap.response_to": "33794",
+          "coap.response_time": "0.001093514"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:36:30.797681191 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804590.797681191",
+          "frame.time_delta": "0.000887692",
+          "frame.time_delta_displayed": "10.983399932",
+          "frame.time_relative": "1976.801397701",
+          "frame.number": "33881",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "03:76",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x0dfd",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x2ec6",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "35980",
+          "udp.port": "5683",
+          "udp.port": "35980",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2204",
+          "Timestamps": {
+            "udp.time_relative": "0.000887692",
+            "udp.time_delta": "0.000887692"
+          },
+          "udp.payload": "58:84:02:db:64:01:ff:1e:13:5c:98:9a"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "731",
+          "coap.token": "64:01:ff:1e:13:5c:98:9a",
+          "coap.opt.uri_path_recon": "/dining_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:05.915764393 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804625.915764393",
+          "frame.time_delta": "0.000766962",
+          "frame.time_delta_displayed": "35.118083202",
+          "frame.time_relative": "2011.919480903",
+          "frame.number": "34302",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "6e:74",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x1a10",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x22b3",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "55217",
+          "udp.port": "5683",
+          "udp.port": "55217",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2239",
+          "Timestamps": {
+            "udp.time_relative": "0.000766962",
+            "udp.time_delta": "0.000766962"
+          },
+          "udp.payload": "68:84:a3:af:77:0a:17:9a:5e:d9:09:12"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "41903",
+          "coap.token": "77:0a:17:9a:5e:d9:09:12",
+          "coap.opt.uri_path_recon": "/main_door",
+          "coap.response_to": "34301",
+          "coap.response_time": "0.000766962"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:24.890857356 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804644.890857356",
+          "frame.time_delta": "0.001134472",
+          "frame.time_delta_displayed": "18.975092963",
+          "frame.time_relative": "2030.894573866",
+          "frame.number": "34475",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x20cd",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x1bf6",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "55078",
+          "udp.port": "5683",
+          "udp.port": "55078",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2256",
+          "Timestamps": {
+            "udp.time_relative": "0.001134472",
+            "udp.time_delta": "0.001134472"
+          },
+          "udp.payload": "68:84:f1:2b:31:94:7f:aa:da:5b:70:cf"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "61739",
+          "coap.token": "31:94:7f:aa:da:5b:70:cf",
+          "coap.opt.uri_path_recon": "/basic",
+          "coap.response_to": "34474",
+          "coap.response_time": "0.001134472"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:25.929624453 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804645.929624453",
+          "frame.time_delta": "0.000874889",
+          "frame.time_delta_displayed": "1.038767097",
+          "frame.time_relative": "2031.933340963",
+          "frame.number": "34477",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x20d4",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x1bef",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "37008",
+          "udp.port": "5683",
+          "udp.port": "37008",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2257",
+          "Timestamps": {
+            "udp.time_relative": "0.000874889",
+            "udp.time_delta": "0.000874889"
+          },
+          "udp.payload": "58:84:02:e0:6f:da:4d:2b:9e:f7:19:2b"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "736",
+          "coap.token": "6f:da:4d:2b:9e:f7:19:2b",
+          "coap.opt.uri_path_recon": "/basic"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:32.841548729 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804652.841548729",
+          "frame.time_delta": "0.000982943",
+          "frame.time_delta_displayed": "6.911924276",
+          "frame.time_relative": "2038.845265239",
+          "frame.number": "34516",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "05:07",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x2400",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x18c3",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "55860",
+          "udp.port": "5683",
+          "udp.port": "55860",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2262",
+          "Timestamps": {
+            "udp.time_relative": "0.000982943",
+            "udp.time_delta": "0.000982943"
+          },
+          "udp.payload": "68:84:f3:80:41:39:cc:51:b6:a9:17:29"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "62336",
+          "coap.token": "41:39:cc:51:b6:a9:17:29",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "34515",
+          "coap.response_time": "0.000982943"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:35.930136148 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804655.930136148",
+          "frame.time_delta": "0.001061089",
+          "frame.time_delta_displayed": "3.088587419",
+          "frame.time_relative": "2041.933852658",
+          "frame.number": "34524",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x2611",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x16b2",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "38698",
+          "udp.port": "5683",
+          "udp.port": "38698",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2265",
+          "Timestamps": {
+            "udp.time_relative": "0.001061089",
+            "udp.time_delta": "0.001061089"
+          },
+          "udp.payload": "58:84:02:e2:62:bc:f7:26:83:89:1b:2e"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "738",
+          "coap.token": "62:bc:f7:26:83:89:1b:2e",
+          "coap.opt.uri_path_recon": "/main_door"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:39.885847207 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804659.885847207",
+          "frame.time_delta": "0.001085470",
+          "frame.time_delta_displayed": "3.955711059",
+          "frame.time_relative": "2045.889563717",
+          "frame.number": "34538",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x2938",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x138b",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "57576",
+          "udp.port": "5683",
+          "udp.port": "57576",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2268",
+          "Timestamps": {
+            "udp.time_relative": "0.001085470",
+            "udp.time_delta": "0.001085470"
+          },
+          "udp.payload": "68:84:8d:26:11:c6:59:ea:03:bb:2f:54"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "36134",
+          "coap.token": "11:c6:59:ea:03:bb:2f:54",
+          "coap.opt.uri_path_recon": "/main_door",
+          "coap.response_to": "34537",
+          "coap.response_time": "0.001085470"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:50.923359206 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804670.923359206",
+          "frame.time_delta": "0.000949362",
+          "frame.time_delta_displayed": "11.037511999",
+          "frame.time_relative": "2056.927075716",
+          "frame.number": "34662",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x2f5c",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0d67",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "45833",
+          "udp.port": "5683",
+          "udp.port": "45833",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2278",
+          "Timestamps": {
+            "udp.time_relative": "0.000949362",
+            "udp.time_delta": "0.000949362"
+          },
+          "udp.payload": "58:84:02:e3:7e:37:cd:86:ea:2d:97:e5"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "739",
+          "coap.token": "7e:37:cd:86:ea:2d:97:e5",
+          "coap.opt.uri_path_recon": "/dining_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:37:51.853932808 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804671.853932808",
+          "frame.time_delta": "0.000982837",
+          "frame.time_delta_displayed": "0.930573602",
+          "frame.time_relative": "2057.857649318",
+          "frame.number": "34664",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x2fd4",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0cef",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "37916",
+          "udp.port": "5683",
+          "udp.port": "37916",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2279",
+          "Timestamps": {
+            "udp.time_relative": "0.000982837",
+            "udp.time_delta": "0.000982837"
+          },
+          "udp.payload": "58:84:02:e4:8b:f2:80:cf:c9:64:f4:26"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "740",
+          "coap.token": "8b:f2:80:cf:c9:64:f4:26",
+          "coap.opt.uri_path_recon": "/living_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:38:31.001305240 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804711.001305240",
+          "frame.time_delta": "0.001045498",
+          "frame.time_delta_displayed": "39.147372432",
+          "frame.time_relative": "2097.005021750",
+          "frame.number": "35009",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "d7:55",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x4029",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xfc99",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "48493",
+          "udp.port": "5683",
+          "udp.port": "48493",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2314",
+          "Timestamps": {
+            "udp.time_relative": "0.001045498",
+            "udp.time_delta": "0.001045498"
+          },
+          "udp.payload": "68:84:27:39:7f:d9:92:96:97:5d:49:f2"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "10041",
+          "coap.token": "7f:d9:92:96:97:5d:49:f2",
+          "coap.opt.uri_path_recon": "/living_room",
+          "coap.response_to": "35008",
+          "coap.response_time": "0.001045498"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:38:31.959903795 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804711.959903795",
+          "frame.time_delta": "0.000807725",
+          "frame.time_delta_displayed": "0.958598555",
+          "frame.time_relative": "2097.963620305",
+          "frame.number": "35011",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x404e",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xfc74",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "41296",
+          "udp.port": "5683",
+          "udp.port": "41296",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2315",
+          "Timestamps": {
+            "udp.time_relative": "0.000807725",
+            "udp.time_delta": "0.000807725"
+          },
+          "udp.payload": "68:84:ef:d5:81:43:9c:69:91:c6:04:b5"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "61397",
+          "coap.token": "81:43:9c:69:91:c6:04:b5",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "35010",
+          "coap.response_time": "0.000807725"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:38:44.093372511 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804724.093372511",
+          "frame.time_delta": "0.000888261",
+          "frame.time_delta_displayed": "12.133468716",
+          "frame.time_relative": "2110.097089021",
+          "frame.number": "35119",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x47ea",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xf4d8",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "40376",
+          "udp.port": "5683",
+          "udp.port": "40376",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2326",
+          "Timestamps": {
+            "udp.time_relative": "0.000888261",
+            "udp.time_delta": "0.000888261"
+          },
+          "udp.payload": "68:84:d7:7e:2d:b9:1a:7e:3c:8b:18:b7"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "55166",
+          "coap.token": "2d:b9:1a:7e:3c:8b:18:b7",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "35118",
+          "coap.response_time": "0.000888261"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:39:45.171018454 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804785.171018454",
+          "frame.time_delta": "0.000931453",
+          "frame.time_delta_displayed": "61.077645943",
+          "frame.time_relative": "2171.174734964",
+          "frame.number": "35699",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "de:f3",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x677e",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xd544",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "35958",
+          "udp.port": "5683",
+          "udp.port": "35958",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2387",
+          "Timestamps": {
+            "udp.time_relative": "0.000931453",
+            "udp.time_delta": "0.000931453"
+          },
+          "udp.payload": "68:84:73:8c:25:99:c1:16:bd:00:ab:22"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "29580",
+          "coap.token": "25:99:c1:16:bd:00:ab:22",
+          "coap.opt.uri_path_recon": "/main_door",
+          "coap.response_to": "35698",
+          "coap.response_time": "0.000931453"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:39:46.066788400 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804786.066788400",
+          "frame.time_delta": "0.000801987",
+          "frame.time_delta_displayed": "0.895769946",
+          "frame.time_relative": "2172.070504910",
+          "frame.number": "35701",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "64:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x6845",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xd47d",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "42377",
+          "udp.port": "5683",
+          "udp.port": "42377",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2388",
+          "Timestamps": {
+            "udp.time_relative": "0.000801987",
+            "udp.time_delta": "0.000801987"
+          },
+          "udp.payload": "58:84:02:f4:25:45:21:b6:f9:51:9d:6c"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "756",
+          "coap.token": "25:45:21:b6:f9:51:9d:6c",
+          "coap.opt.uri_path_recon": "/living_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:03.212211490 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804803.212211490",
+          "frame.time_delta": "0.001135335",
+          "frame.time_delta_displayed": "17.145423090",
+          "frame.time_relative": "2189.215928000",
+          "frame.number": "36288",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x6fd6",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xccec",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "60849",
+          "udp.port": "5683",
+          "udp.port": "60849",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2408",
+          "Timestamps": {
+            "udp.time_relative": "0.001135335",
+            "udp.time_delta": "0.001135335"
+          },
+          "udp.payload": "68:84:bd:4c:5f:ec:5a:3d:7f:fa:c4:38"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "48460",
+          "coap.token": "5f:ec:5a:3d:7f:fa:c4:38",
+          "coap.opt.uri_path_recon": "/basic",
+          "coap.response_to": "36287",
+          "coap.response_time": "0.001135335"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:04.275186828 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804804.275186828",
+          "frame.time_delta": "0.001021871",
+          "frame.time_delta_displayed": "1.062975338",
+          "frame.time_relative": "2190.278903338",
+          "frame.number": "36327",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "52:54",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x70aa",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xcc18",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "55375",
+          "udp.port": "5683",
+          "udp.port": "55375",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2409",
+          "Timestamps": {
+            "udp.time_relative": "0.001021871",
+            "udp.time_delta": "0.001021871"
+          },
+          "udp.payload": "68:84:4f:55:bf:11:d5:33:9f:3a:3f:87"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "20309",
+          "coap.token": "bf:11:d5:33:9f:3a:3f:87",
+          "coap.opt.uri_path_recon": "/living_room",
+          "coap.response_to": "36326",
+          "coap.response_time": "0.001021871"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:12.067069166 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804812.067069166",
+          "frame.time_delta": "0.001292250",
+          "frame.time_delta_displayed": "7.791882338",
+          "frame.time_relative": "2198.070785676",
+          "frame.number": "36646",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "6f:6e",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0x76c4",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xc606",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "34026",
+          "udp.port": "5683",
+          "udp.port": "34026",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2414",
+          "Timestamps": {
+            "udp.time_relative": "0.001292250",
+            "udp.time_delta": "0.001292250"
+          },
+          "udp.payload": "60:84:a3:db"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "41947"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:19.253464299 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804819.253464299",
+          "frame.time_delta": "0.001020064",
+          "frame.time_delta_displayed": "7.186395133",
+          "frame.time_relative": "2205.257180809",
+          "frame.number": "37003",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "73:63",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x7d07",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xbfbb",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "51081",
+          "udp.port": "5683",
+          "udp.port": "51081",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2434",
+          "Timestamps": {
+            "udp.time_relative": "0.001020064",
+            "udp.time_delta": "0.001020064"
+          },
+          "udp.payload": "58:84:02:fa:79:b9:8c:ac:47:4a:71:8d"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "762",
+          "coap.token": "79:b9:8c:ac:47:4a:71:8d",
+          "coap.opt.uri_path_recon": "/dining_room"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:35.214799863 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804835.214799863",
+          "frame.time_delta": "0.001192480",
+          "frame.time_delta_displayed": "15.961335564",
+          "frame.time_relative": "2221.218516373",
+          "frame.number": "37411",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "74:22",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x8686",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xb63c",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "32860",
+          "udp.port": "5683",
+          "udp.port": "32860",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2447",
+          "Timestamps": {
+            "udp.time_relative": "0.001192480",
+            "udp.time_delta": "0.001192480"
+          },
+          "udp.payload": "58:84:02:fd:b0:44:2d:de:fd:27:87:e7"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "765",
+          "coap.token": "b0:44:2d:de:fd:27:87:e7",
+          "coap.opt.uri_path_recon": "/dining_room/door"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:39.299873917 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804839.299873917",
+          "frame.time_delta": "0.000849815",
+          "frame.time_delta_displayed": "4.085074054",
+          "frame.time_relative": "2225.303590427",
+          "frame.number": "37475",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "74:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x879d",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xb525",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "51053",
+          "udp.port": "5683",
+          "udp.port": "51053",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2451",
+          "Timestamps": {
+            "udp.time_relative": "0.000849815",
+            "udp.time_delta": "0.000849815"
+          },
+          "udp.payload": "58:84:02:fe:14:89:11:fb:92:67:ad:69"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "766",
+          "coap.token": "14:89:11:fb:92:67:ad:69"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:53.178511174 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804853.178511174",
+          "frame.time_delta": "0.001096509",
+          "frame.time_delta_displayed": "13.878637257",
+          "frame.time_relative": "2239.182227684",
+          "frame.number": "37818",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "03:76",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x910f",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xabb3",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "57717",
+          "udp.port": "5683",
+          "udp.port": "57717",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2474",
+          "Timestamps": {
+            "udp.time_relative": "0.001096509",
+            "udp.time_delta": "0.001096509"
+          },
+          "udp.payload": "58:84:02:ff:7c:ea:83:7d:c6:00:2e:2c"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "1",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "767",
+          "coap.token": "7c:ea:83:7d:c6:00:2e:2c",
+          "coap.opt.uri_path_recon": "/basic"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:55.247966349 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804855.247966349",
+          "frame.time_delta": "0.001341132",
+          "frame.time_delta_displayed": "2.069455175",
+          "frame.time_relative": "2241.251682859",
+          "frame.number": "37820",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x9254",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xaa6e",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "59264",
+          "udp.port": "5683",
+          "udp.port": "59264",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2475",
+          "Timestamps": {
+            "udp.time_relative": "0.001341132",
+            "udp.time_delta": "0.001341132"
+          },
+          "udp.payload": "68:84:0d:db:61:37:db:eb:33:c1:79:38"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "3547",
+          "coap.token": "61:37:db:eb:33:c1:79:38",
+          "coap.opt.uri_path_recon": "/basic",
+          "coap.response_to": "37819",
+          "coap.response_time": "0.001341132"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:40:59.262437412 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804859.262437412",
+          "frame.time_delta": "0.001208738",
+          "frame.time_delta_displayed": "4.014471063",
+          "frame.time_relative": "2245.266153922",
+          "frame.number": "37905",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:05",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x939c",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xa926",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "46631",
+          "udp.port": "5683",
+          "udp.port": "46631",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2481",
+          "Timestamps": {
+            "udp.time_relative": "0.001208738",
+            "udp.time_delta": "0.001208738"
+          },
+          "udp.payload": "68:84:bd:c2:d5:15:74:d7:48:3b:0c:e6"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "48578",
+          "coap.token": "d5:15:74:d7:48:3b:0c:e6",
+          "coap.opt.uri_path_recon": "/main_door",
+          "coap.response_to": "37904",
+          "coap.response_time": "0.001208738"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:41:12.214880685 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804872.214880685",
+          "frame.time_delta": "0.001001991",
+          "frame.time_delta_displayed": "12.952443273",
+          "frame.time_relative": "2258.218597195",
+          "frame.number": "38699",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0x9c3a",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0xa088",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "55559",
+          "udp.port": "5683",
+          "udp.port": "55559",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2513",
+          "Timestamps": {
+            "udp.time_relative": "0.001001991",
+            "udp.time_delta": "0.001001991"
+          },
+          "udp.payload": "68:84:80:cc:10:43:62:62:0b:64:1e:4f"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "32972",
+          "coap.token": "10:43:62:62:0b:64:1e:4f",
+          "coap.opt.uri_path_recon": "/living_room",
+          "coap.response_to": "38698",
+          "coap.response_time": "0.001001991"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:41:28.357219486 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804888.357219486",
+          "frame.time_delta": "0.001273037",
+          "frame.time_delta_displayed": "16.142338801",
+          "frame.time_relative": "2274.360935996",
+          "frame.number": "38965",
+          "frame.len": "56",
+          "frame.cap_len": "56",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "b5:65",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "40",
+          "ip.id": "0xa09e",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x9c24",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "50139",
+          "udp.port": "5683",
+          "udp.port": "50139",
+          "udp.length": "20",
+          "udp.checksum": "0xfe27",
+          "udp.checksum.status": "2",
+          "udp.stream": "2530",
+          "Timestamps": {
+            "udp.time_relative": "0.001273037",
+            "udp.time_delta": "0.001273037"
+          },
+          "udp.payload": "68:84:eb:a0:42:87:86:70:06:d4:01:3a"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "8",
+          "coap.code": "132",
+          "coap.mid": "60320",
+          "coap.token": "42:87:86:70:06:d4:01:3a",
+          "coap.opt.uri_path_recon": "/dining_room",
+          "coap.response_to": "38964",
+          "coap.response_time": "0.001273037"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:17.100550408 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804937.100550408",
+          "frame.time_delta": "0.001285291",
+          "frame.time_delta_displayed": "48.743330922",
+          "frame.time_relative": "2323.104266918",
+          "frame.number": "39160",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xbcb1",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x8019",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "49655",
+          "udp.port": "5683",
+          "udp.port": "49655",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2536",
+          "Timestamps": {
+            "udp.time_relative": "1.992428277",
+            "udp.time_delta": "0.001285291"
+          },
+          "udp.payload": "60:84:1a:50"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "6736"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:19.100443257 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804939.100443257",
+          "frame.time_delta": "0.004030301",
+          "frame.time_delta_displayed": "1.999892849",
+          "frame.time_relative": "2325.104159767",
+          "frame.number": "39168",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xbe0d",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x7ebd",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "49655",
+          "udp.port": "5683",
+          "udp.port": "49655",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2536",
+          "Timestamps": {
+            "udp.time_relative": "3.992321126",
+            "udp.time_delta": "0.004030301"
+          },
+          "udp.payload": "60:84:1a:53"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "6739"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:19.731666510 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804939.731666510",
+          "frame.time_delta": "0.001424784",
+          "frame.time_delta_displayed": "0.631223253",
+          "frame.time_relative": "2325.735383020",
+          "frame.number": "39170",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xbe55",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x7e75",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "49655",
+          "udp.port": "5683",
+          "udp.port": "49655",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2536",
+          "Timestamps": {
+            "udp.time_relative": "4.623544379",
+            "udp.time_delta": "0.001424784"
+          },
+          "udp.payload": "60:84:1a:54"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "6740"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:19.877660831 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804939.877660831",
+          "frame.time_delta": "0.000999842",
+          "frame.time_delta_displayed": "0.145994321",
+          "frame.time_relative": "2325.881377341",
+          "frame.number": "39172",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "00:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xbe7a",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x7e50",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "49655",
+          "udp.port": "5683",
+          "udp.port": "49655",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2536",
+          "Timestamps": {
+            "udp.time_relative": "4.769538700",
+            "udp.time_delta": "0.000999842"
+          },
+          "udp.payload": "60:84:1a:55"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "6741"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:22.932959168 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804942.932959168",
+          "frame.time_delta": "0.001052288",
+          "frame.time_delta_displayed": "3.055298337",
+          "frame.time_relative": "2328.936675678",
+          "frame.number": "39178",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "08:00",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xc085",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x7c45",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "49655",
+          "udp.port": "5683",
+          "udp.port": "49655",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2536",
+          "Timestamps": {
+            "udp.time_relative": "7.824837037",
+            "udp.time_delta": "0.001052288"
+          },
+          "udp.payload": "60:84:1a:58"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "6744"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2023-03-14",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.section_number": "1",
+          "frame.interface_id": "0",
+          "frame.interface_id_tree": {
+            "frame.interface_name": "any"
+          },
+          "frame.encap_type": "25",
+          "frame.time": "Mar 14, 2023 15:42:26.636808816 ora solare Europa occidentale",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_epoch": "1678804946.636808816",
+          "frame.time_delta": "0.001120773",
+          "frame.time_delta_displayed": "3.703849648",
+          "frame.time_relative": "2332.640525326",
+          "frame.number": "39190",
+          "frame.len": "48",
+          "frame.cap_len": "48",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "sll:ethertype:ip:udp:coap",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "sll": {
+          "sll.pkttype": "0",
+          "sll.hatype": "772",
+          "sll.halen": "6",
+          "sll.src.eth": "00:00:00:00:00:00",
+          "sll.unused": "3d:30",
+          "sll.etype": "0x0800"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "32",
+          "ip.id": "0xc32f",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x799b",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1"
+        },
+        "udp": {
+          "udp.srcport": "5683",
+          "udp.dstport": "39715",
+          "udp.port": "5683",
+          "udp.port": "39715",
+          "udp.length": "12",
+          "udp.checksum": "0xfe1f",
+          "udp.checksum.status": "2",
+          "udp.stream": "2538",
+          "Timestamps": {
+            "udp.time_relative": "0.001120773",
+            "udp.time_delta": "0.001120773"
+          },
+          "udp.payload": "60:84:c2:ba"
+        },
+        "coap": {
+          "coap.version": "1",
+          "coap.type": "2",
+          "coap.token_len": "0",
+          "coap.code": "132",
+          "coap.mid": "49850"
+        }
+      }
+    }
+  }
+]
