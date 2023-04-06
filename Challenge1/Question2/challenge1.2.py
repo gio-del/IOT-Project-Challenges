@@ -4,6 +4,7 @@ import json
 with open('1.2.1.json', 'r') as f:
     # Load the JSON
     data = json.load(f)
+    print('1.2.1', len(data))
     unique_mid = []
     unique_tokens = []
     # Loop through the data
@@ -32,6 +33,8 @@ with open('1.2.2.json', 'r') as f1:
         # remove the overlapping packets
         data1 = json.load(f1)
         data2 = json.load(f2)
+        print('1.2.2', len(data1))
+        print('1.2.3', len(data2))
         frame_numbers1 = []
         frame_numbers2 = []
         for item in data1:
@@ -43,8 +46,7 @@ with open('1.2.2.json', 'r') as f1:
                 item['_source']['layers']['frame']['frame.number'])
 
         # join the two lists removing the overlapping packets
-        frame_numbers = frame_numbers1 + frame_numbers2
-        frame_numbers = list(set(frame_numbers))
+        frame_numbers = list(set(frame_numbers1 + frame_numbers2))
         frame_numbers.sort()
         print(frame_numbers)
         print(len(frame_numbers))

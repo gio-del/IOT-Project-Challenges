@@ -1,6 +1,6 @@
 import json
 
-with open('./3/1.3.json') as f:
+with open('1.3.json') as f:
     data = json.load(f)
     # Filter out the packets with uri-path that doesn't contain a + sign
     filtered_items = [item for item in data if 'mqtt' in item['_source']['layers'] and 'mqtt.topic' in item['_source']
