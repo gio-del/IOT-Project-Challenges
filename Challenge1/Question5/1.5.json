@@ -12,150 +12,11 @@
             "frame.interface_name": "any"
           },
           "frame.encap_type": "25",
-          "frame.time": "Mar 14, 2023 15:03:35.628088995 ora solare Europa occidentale",
-          "frame.offset_shift": "0.000000000",
-          "frame.time_epoch": "1678802615.628088995",
-          "frame.time_delta": "0.000162948",
-          "frame.time_delta_displayed": "0.000000000",
-          "frame.time_relative": "1.631805505",
-          "frame.number": "44",
-          "frame.len": "79",
-          "frame.cap_len": "79",
-          "frame.marked": "0",
-          "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:tcp:mqtt",
-          "frame.coloring_rule.name": "TCP",
-          "frame.coloring_rule.string": "tcp"
-        },
-        "sll": {
-          "sll.pkttype": "4",
-          "sll.hatype": "1",
-          "sll.halen": "6",
-          "sll.src.eth": "08:00:27:85:5b:af",
-          "sll.unused": "00:00",
-          "sll.etype": "0x0800"
-        },
-        "ip": {
-          "ip.version": "4",
-          "ip.hdr_len": "20",
-          "ip.dsfield": "0x00",
-          "ip.dsfield_tree": {
-            "ip.dsfield.dscp": "0",
-            "ip.dsfield.ecn": "0"
-          },
-          "ip.len": "63",
-          "ip.id": "0x20c4",
-          "ip.flags": "0x02",
-          "ip.flags_tree": {
-            "ip.flags.rb": "0",
-            "ip.flags.df": "1",
-            "ip.flags.mf": "0"
-          },
-          "ip.frag_offset": "0",
-          "ip.ttl": "64",
-          "ip.proto": "6",
-          "ip.checksum": "0x8194",
-          "ip.checksum.status": "2",
-          "ip.src": "10.0.2.15",
-          "ip.addr": "10.0.2.15",
-          "ip.src_host": "10.0.2.15",
-          "ip.host": "10.0.2.15",
-          "ip.dst": "3.65.137.17",
-          "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
-        },
-        "tcp": {
-          "tcp.srcport": "34039",
-          "tcp.dstport": "1883",
-          "tcp.port": "34039",
-          "tcp.port": "1883",
-          "tcp.stream": "1",
-          "tcp.completeness": "31",
-          "tcp.len": "23",
-          "tcp.seq": "1",
-          "tcp.seq_raw": "920830002",
-          "tcp.nxtseq": "24",
-          "tcp.ack": "1",
-          "tcp.ack_raw": "92224002",
-          "tcp.hdr_len": "20",
-          "tcp.flags": "0x0018",
-          "tcp.flags_tree": {
-            "tcp.flags.res": "0",
-            "tcp.flags.ae": "0",
-            "tcp.flags.cwr": "0",
-            "tcp.flags.ece": "0",
-            "tcp.flags.urg": "0",
-            "tcp.flags.ack": "1",
-            "tcp.flags.push": "1",
-            "tcp.flags.reset": "0",
-            "tcp.flags.syn": "0",
-            "tcp.flags.fin": "0",
-            "tcp.flags.str": "·······AP···"
-          },
-          "tcp.window_size_value": "64240",
-          "tcp.window_size": "64240",
-          "tcp.window_size_scalefactor": "-2",
-          "tcp.checksum": "0x9892",
-          "tcp.checksum.status": "2",
-          "tcp.urgent_pointer": "0",
-          "Timestamps": {
-            "tcp.time_relative": "0.015809439",
-            "tcp.time_delta": "0.000162948"
-          },
-          "tcp.analysis": {
-            "tcp.analysis.initial_rtt": "0.015646491",
-            "tcp.analysis.bytes_in_flight": "23",
-            "tcp.analysis.push_bytes_sent": "23"
-          },
-          "tcp.payload": "10:15:00:04:4d:51:54:54:04:02:00:7e:00:09:6c:7a:62:66:73:70:79:70:62",
-          "tcp.pdu.size": "23"
-        },
-        "mqtt": {
-          "mqtt.hdrflags": "0x10",
-          "mqtt.hdrflags_tree": {
-            "mqtt.msgtype": "1",
-            "mqtt.hdr_reserved": "0"
-          },
-          "mqtt.len": "21",
-          "mqtt.proto_len": "4",
-          "mqtt.protoname": "MQTT",
-          "mqtt.ver": "4",
-          "mqtt.conflags": "0x02",
-          "mqtt.conflags_tree": {
-            "mqtt.conflag.uname": "0",
-            "mqtt.conflag.passwd": "0",
-            "mqtt.conflag.retain": "0",
-            "mqtt.conflag.qos": "0",
-            "mqtt.conflag.willflag": "0",
-            "mqtt.conflag.cleansess": "1",
-            "mqtt.conflag.reserved": "0"
-          },
-          "mqtt.kalive": "126",
-          "mqtt.clientid_len": "9",
-          "mqtt.clientid": "lzbfspypb"
-        }
-      }
-    }
-  },
-  {
-    "_index": "packets-2023-03-14",
-    "_type": "doc",
-    "_score": null,
-    "_source": {
-      "layers": {
-        "frame": {
-          "frame.section_number": "1",
-          "frame.interface_id": "0",
-          "frame.interface_id_tree": {
-            "frame.interface_name": "any"
-          },
-          "frame.encap_type": "25",
           "frame.time": "Mar 14, 2023 15:03:35.629337679 ora solare Europa occidentale",
           "frame.offset_shift": "0.000000000",
           "frame.time_epoch": "1678802615.629337679",
           "frame.time_delta": "0.000123461",
-          "frame.time_delta_displayed": "0.001248684",
+          "frame.time_delta_displayed": "0.000000000",
           "frame.time_relative": "1.633054189",
           "frame.number": "48",
           "frame.len": "85",
@@ -201,8 +62,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "47723",
@@ -343,8 +204,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "52.29.173.150",
           "ip.addr": "52.29.173.150",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "52.29.173.150",
+          "ip.host": "52.29.173.150"
         },
         "tcp": {
           "tcp.srcport": "60609",
@@ -485,8 +346,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "52.29.173.150",
           "ip.addr": "52.29.173.150",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "52.29.173.150",
+          "ip.host": "52.29.173.150"
         },
         "tcp": {
           "tcp.srcport": "57265",
@@ -577,293 +438,11 @@
             "frame.interface_name": "any"
           },
           "frame.encap_type": "25",
-          "frame.time": "Mar 14, 2023 15:03:42.691165457 ora solare Europa occidentale",
-          "frame.offset_shift": "0.000000000",
-          "frame.time_epoch": "1678802622.691165457",
-          "frame.time_delta": "0.003551064",
-          "frame.time_delta_displayed": "0.004377997",
-          "frame.time_relative": "8.694881967",
-          "frame.number": "319",
-          "frame.len": "76",
-          "frame.cap_len": "76",
-          "frame.marked": "0",
-          "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:tcp:mqtt",
-          "frame.coloring_rule.name": "TCP",
-          "frame.coloring_rule.string": "tcp"
-        },
-        "sll": {
-          "sll.pkttype": "4",
-          "sll.hatype": "1",
-          "sll.halen": "6",
-          "sll.src.eth": "08:00:27:85:5b:af",
-          "sll.unused": "00:00",
-          "sll.etype": "0x0800"
-        },
-        "ip": {
-          "ip.version": "4",
-          "ip.hdr_len": "20",
-          "ip.dsfield": "0x00",
-          "ip.dsfield_tree": {
-            "ip.dsfield.dscp": "0",
-            "ip.dsfield.ecn": "0"
-          },
-          "ip.len": "60",
-          "ip.id": "0x09b4",
-          "ip.flags": "0x02",
-          "ip.flags_tree": {
-            "ip.flags.rb": "0",
-            "ip.flags.df": "1",
-            "ip.flags.mf": "0"
-          },
-          "ip.frag_offset": "0",
-          "ip.ttl": "64",
-          "ip.proto": "6",
-          "ip.checksum": "0x4346",
-          "ip.checksum.status": "2",
-          "ip.src": "10.0.2.15",
-          "ip.addr": "10.0.2.15",
-          "ip.src_host": "10.0.2.15",
-          "ip.host": "10.0.2.15",
-          "ip.dst": "52.29.173.150",
-          "ip.addr": "52.29.173.150",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
-        },
-        "tcp": {
-          "tcp.srcport": "55677",
-          "tcp.dstport": "1883",
-          "tcp.port": "55677",
-          "tcp.port": "1883",
-          "tcp.stream": "9",
-          "tcp.completeness": "31",
-          "tcp.len": "20",
-          "tcp.seq": "1",
-          "tcp.seq_raw": "759123320",
-          "tcp.nxtseq": "21",
-          "tcp.ack": "1",
-          "tcp.ack_raw": "93248002",
-          "tcp.hdr_len": "20",
-          "tcp.flags": "0x0018",
-          "tcp.flags_tree": {
-            "tcp.flags.res": "0",
-            "tcp.flags.ae": "0",
-            "tcp.flags.cwr": "0",
-            "tcp.flags.ece": "0",
-            "tcp.flags.urg": "0",
-            "tcp.flags.ack": "1",
-            "tcp.flags.push": "1",
-            "tcp.flags.reset": "0",
-            "tcp.flags.syn": "0",
-            "tcp.flags.fin": "0",
-            "tcp.flags.str": "·······AP···"
-          },
-          "tcp.window_size_value": "64240",
-          "tcp.window_size": "64240",
-          "tcp.window_size_scalefactor": "-2",
-          "tcp.checksum": "0xedf0",
-          "tcp.checksum.status": "2",
-          "tcp.urgent_pointer": "0",
-          "Timestamps": {
-            "tcp.time_relative": "0.026465071",
-            "tcp.time_delta": "0.003839457"
-          },
-          "tcp.analysis": {
-            "tcp.analysis.initial_rtt": "0.022625614",
-            "tcp.analysis.bytes_in_flight": "20",
-            "tcp.analysis.push_bytes_sent": "20"
-          },
-          "tcp.payload": "10:12:00:04:4d:51:54:54:04:02:00:2c:00:06:66:66:77:73:61:76",
-          "tcp.pdu.size": "20"
-        },
-        "mqtt": {
-          "mqtt.hdrflags": "0x10",
-          "mqtt.hdrflags_tree": {
-            "mqtt.msgtype": "1",
-            "mqtt.hdr_reserved": "0"
-          },
-          "mqtt.len": "18",
-          "mqtt.proto_len": "4",
-          "mqtt.protoname": "MQTT",
-          "mqtt.ver": "4",
-          "mqtt.conflags": "0x02",
-          "mqtt.conflags_tree": {
-            "mqtt.conflag.uname": "0",
-            "mqtt.conflag.passwd": "0",
-            "mqtt.conflag.retain": "0",
-            "mqtt.conflag.qos": "0",
-            "mqtt.conflag.willflag": "0",
-            "mqtt.conflag.cleansess": "1",
-            "mqtt.conflag.reserved": "0"
-          },
-          "mqtt.kalive": "44",
-          "mqtt.clientid_len": "6",
-          "mqtt.clientid": "ffwsav"
-        }
-      }
-    }
-  },
-  {
-    "_index": "packets-2023-03-14",
-    "_type": "doc",
-    "_score": null,
-    "_source": {
-      "layers": {
-        "frame": {
-          "frame.section_number": "1",
-          "frame.interface_id": "0",
-          "frame.interface_id_tree": {
-            "frame.interface_name": "any"
-          },
-          "frame.encap_type": "25",
-          "frame.time": "Mar 14, 2023 15:06:49.861022526 ora solare Europa occidentale",
-          "frame.offset_shift": "0.000000000",
-          "frame.time_epoch": "1678802809.861022526",
-          "frame.time_delta": "0.000167298",
-          "frame.time_delta_displayed": "187.169857069",
-          "frame.time_relative": "195.864739036",
-          "frame.number": "1697",
-          "frame.len": "122",
-          "frame.cap_len": "122",
-          "frame.marked": "0",
-          "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:tcp:mqtt",
-          "frame.coloring_rule.name": "TCP",
-          "frame.coloring_rule.string": "tcp"
-        },
-        "sll": {
-          "sll.pkttype": "4",
-          "sll.hatype": "1",
-          "sll.halen": "6",
-          "sll.src.eth": "08:00:27:85:5b:af",
-          "sll.unused": "00:88",
-          "sll.etype": "0x0800"
-        },
-        "ip": {
-          "ip.version": "4",
-          "ip.hdr_len": "20",
-          "ip.dsfield": "0x00",
-          "ip.dsfield_tree": {
-            "ip.dsfield.dscp": "0",
-            "ip.dsfield.ecn": "0"
-          },
-          "ip.len": "106",
-          "ip.id": "0x1930",
-          "ip.flags": "0x02",
-          "ip.flags_tree": {
-            "ip.flags.rb": "0",
-            "ip.flags.df": "1",
-            "ip.flags.mf": "0"
-          },
-          "ip.frag_offset": "0",
-          "ip.ttl": "64",
-          "ip.proto": "6",
-          "ip.checksum": "0x88fd",
-          "ip.checksum.status": "2",
-          "ip.src": "10.0.2.15",
-          "ip.addr": "10.0.2.15",
-          "ip.src_host": "10.0.2.15",
-          "ip.host": "10.0.2.15",
-          "ip.dst": "3.65.137.17",
-          "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
-        },
-        "tcp": {
-          "tcp.srcport": "41083",
-          "tcp.dstport": "1883",
-          "tcp.port": "41083",
-          "tcp.port": "1883",
-          "tcp.stream": "33",
-          "tcp.completeness": "47",
-          "tcp.len": "66",
-          "tcp.seq": "1",
-          "tcp.seq_raw": "2661784597",
-          "tcp.nxtseq": "67",
-          "tcp.ack": "1",
-          "tcp.ack_raw": "114752002",
-          "tcp.hdr_len": "20",
-          "tcp.flags": "0x0018",
-          "tcp.flags_tree": {
-            "tcp.flags.res": "0",
-            "tcp.flags.ae": "0",
-            "tcp.flags.cwr": "0",
-            "tcp.flags.ece": "0",
-            "tcp.flags.urg": "0",
-            "tcp.flags.ack": "1",
-            "tcp.flags.push": "1",
-            "tcp.flags.reset": "0",
-            "tcp.flags.syn": "0",
-            "tcp.flags.fin": "0",
-            "tcp.flags.str": "·······AP···"
-          },
-          "tcp.window_size_value": "64240",
-          "tcp.window_size": "64240",
-          "tcp.window_size_scalefactor": "-2",
-          "tcp.checksum": "0x98bd",
-          "tcp.checksum.status": "2",
-          "tcp.urgent_pointer": "0",
-          "Timestamps": {
-            "tcp.time_relative": "0.016036740",
-            "tcp.time_delta": "0.000167298"
-          },
-          "tcp.analysis": {
-            "tcp.analysis.initial_rtt": "0.015869442",
-            "tcp.analysis.bytes_in_flight": "66",
-            "tcp.analysis.push_bytes_sent": "66"
-          },
-          "tcp.payload": "10:40:00:04:4d:51:54:54:04:06:01:ff:00:07:71:71:6f:66:6f:78:77:00:1a:75:6e:69:76:65:72:73:69:74:79:2f:62:75:69:6c:64:69:6e:67:32:2f:72:6f:6f:6d:36:00:0f:65:72:72:6f:72:3a:20:63:64:66:78:71:70:6d:65",
-          "tcp.pdu.size": "66"
-        },
-        "mqtt": {
-          "mqtt.hdrflags": "0x10",
-          "mqtt.hdrflags_tree": {
-            "mqtt.msgtype": "1",
-            "mqtt.hdr_reserved": "0"
-          },
-          "mqtt.len": "64",
-          "mqtt.proto_len": "4",
-          "mqtt.protoname": "MQTT",
-          "mqtt.ver": "4",
-          "mqtt.conflags": "0x06",
-          "mqtt.conflags_tree": {
-            "mqtt.conflag.uname": "0",
-            "mqtt.conflag.passwd": "0",
-            "mqtt.conflag.retain": "0",
-            "mqtt.conflag.qos": "0",
-            "mqtt.conflag.willflag": "1",
-            "mqtt.conflag.cleansess": "1",
-            "mqtt.conflag.reserved": "0"
-          },
-          "mqtt.kalive": "511",
-          "mqtt.clientid_len": "7",
-          "mqtt.clientid": "qqofoxw",
-          "mqtt.willtopic_len": "26",
-          "mqtt.willtopic": "university/building2/room6",
-          "mqtt.willmsg_len": "15",
-          "mqtt.willmsg": "65:72:72:6f:72:3a:20:63:64:66:78:71:70:6d:65"
-        }
-      }
-    }
-  },
-  {
-    "_index": "packets-2023-03-14",
-    "_type": "doc",
-    "_score": null,
-    "_source": {
-      "layers": {
-        "frame": {
-          "frame.section_number": "1",
-          "frame.interface_id": "0",
-          "frame.interface_id_tree": {
-            "frame.interface_name": "any"
-          },
-          "frame.encap_type": "25",
           "frame.time": "Mar 14, 2023 15:06:51.876651996 ora solare Europa occidentale",
           "frame.offset_shift": "0.000000000",
           "frame.time_epoch": "1678802811.876651996",
           "frame.time_delta": "0.000387087",
-          "frame.time_delta_displayed": "2.015629470",
+          "frame.time_delta_displayed": "189.189864536",
           "frame.time_relative": "197.880368506",
           "frame.number": "1746",
           "frame.len": "77",
@@ -909,8 +488,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "52.29.173.150",
           "ip.addr": "52.29.173.150",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "52.29.173.150",
+          "ip.host": "52.29.173.150"
         },
         "tcp": {
           "tcp.srcport": "36665",
@@ -1051,8 +630,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "45635",
@@ -1193,8 +772,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "37401",
@@ -1335,8 +914,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "46967",
@@ -1427,154 +1006,11 @@
             "frame.interface_name": "any"
           },
           "frame.encap_type": "25",
-          "frame.time": "Mar 14, 2023 15:39:53.649554781 ora solare Europa occidentale",
-          "frame.offset_shift": "0.000000000",
-          "frame.time_epoch": "1678804793.649554781",
-          "frame.time_delta": "0.000188017",
-          "frame.time_delta_displayed": "462.962299077",
-          "frame.time_relative": "2179.653271291",
-          "frame.number": "35836",
-          "frame.len": "128",
-          "frame.cap_len": "128",
-          "frame.marked": "0",
-          "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:tcp:mqtt",
-          "frame.coloring_rule.name": "TCP",
-          "frame.coloring_rule.string": "tcp"
-        },
-        "sll": {
-          "sll.pkttype": "4",
-          "sll.hatype": "1",
-          "sll.halen": "6",
-          "sll.src.eth": "08:00:27:85:5b:af",
-          "sll.unused": "01:01",
-          "sll.etype": "0x0800"
-        },
-        "ip": {
-          "ip.version": "4",
-          "ip.hdr_len": "20",
-          "ip.dsfield": "0x00",
-          "ip.dsfield_tree": {
-            "ip.dsfield.dscp": "0",
-            "ip.dsfield.ecn": "0"
-          },
-          "ip.len": "112",
-          "ip.id": "0xc72d",
-          "ip.flags": "0x02",
-          "ip.flags_tree": {
-            "ip.flags.rb": "0",
-            "ip.flags.df": "1",
-            "ip.flags.mf": "0"
-          },
-          "ip.frag_offset": "0",
-          "ip.ttl": "64",
-          "ip.proto": "6",
-          "ip.checksum": "0xdaf9",
-          "ip.checksum.status": "2",
-          "ip.src": "10.0.2.15",
-          "ip.addr": "10.0.2.15",
-          "ip.src_host": "10.0.2.15",
-          "ip.host": "10.0.2.15",
-          "ip.dst": "3.65.137.17",
-          "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
-        },
-        "tcp": {
-          "tcp.srcport": "58887",
-          "tcp.dstport": "1883",
-          "tcp.port": "58887",
-          "tcp.port": "1883",
-          "tcp.stream": "632",
-          "tcp.completeness": "47",
-          "tcp.len": "72",
-          "tcp.seq": "1",
-          "tcp.seq_raw": "105121898",
-          "tcp.nxtseq": "73",
-          "tcp.ack": "1",
-          "tcp.ack_raw": "353344002",
-          "tcp.hdr_len": "20",
-          "tcp.flags": "0x0018",
-          "tcp.flags_tree": {
-            "tcp.flags.res": "0",
-            "tcp.flags.ae": "0",
-            "tcp.flags.cwr": "0",
-            "tcp.flags.ece": "0",
-            "tcp.flags.urg": "0",
-            "tcp.flags.ack": "1",
-            "tcp.flags.push": "1",
-            "tcp.flags.reset": "0",
-            "tcp.flags.syn": "0",
-            "tcp.flags.fin": "0",
-            "tcp.flags.str": "·······AP···"
-          },
-          "tcp.window_size_value": "64240",
-          "tcp.window_size": "64240",
-          "tcp.window_size_scalefactor": "-2",
-          "tcp.checksum": "0x98c3",
-          "tcp.checksum.status": "2",
-          "tcp.urgent_pointer": "0",
-          "Timestamps": {
-            "tcp.time_relative": "0.015577450",
-            "tcp.time_delta": "0.000188017"
-          },
-          "tcp.analysis": {
-            "tcp.analysis.initial_rtt": "0.015389433",
-            "tcp.analysis.bytes_in_flight": "72",
-            "tcp.analysis.push_bytes_sent": "72"
-          },
-          "tcp.payload": "10:46:00:06:4d:51:49:73:64:70:03:16:01:b2:00:0a:64:78:62:73:69:65:66:6f:77:68:00:1b:75:6e:69:76:65:72:73:69:74:79:2f:66:61:63:69:6c:69:74:79:32:2f:66:6c:6f:6f:72:32:00:0f:65:72:72:6f:72:3a:20:79:61:64:77:6a:72:62:6a",
-          "tcp.pdu.size": "72"
-        },
-        "mqtt": {
-          "mqtt.hdrflags": "0x10",
-          "mqtt.hdrflags_tree": {
-            "mqtt.msgtype": "1",
-            "mqtt.hdr_reserved": "0"
-          },
-          "mqtt.len": "70",
-          "mqtt.proto_len": "6",
-          "mqtt.protoname": "MQIsdp",
-          "mqtt.ver": "3",
-          "mqtt.conflags": "0x16",
-          "mqtt.conflags_tree": {
-            "mqtt.conflag.uname": "0",
-            "mqtt.conflag.passwd": "0",
-            "mqtt.conflag.retain": "0",
-            "mqtt.conflag.qos": "2",
-            "mqtt.conflag.willflag": "1",
-            "mqtt.conflag.cleansess": "1",
-            "mqtt.conflag.reserved": "0"
-          },
-          "mqtt.kalive": "434",
-          "mqtt.clientid_len": "10",
-          "mqtt.clientid": "dxbsiefowh",
-          "mqtt.willtopic_len": "27",
-          "mqtt.willtopic": "university/facility2/floor2",
-          "mqtt.willmsg_len": "15",
-          "mqtt.willmsg": "65:72:72:6f:72:3a:20:79:61:64:77:6a:72:62:6a"
-        }
-      }
-    }
-  },
-  {
-    "_index": "packets-2023-03-14",
-    "_type": "doc",
-    "_score": null,
-    "_source": {
-      "layers": {
-        "frame": {
-          "frame.section_number": "1",
-          "frame.interface_id": "0",
-          "frame.interface_id_tree": {
-            "frame.interface_name": "any"
-          },
-          "frame.encap_type": "25",
           "frame.time": "Mar 14, 2023 15:39:53.649819077 ora solare Europa occidentale",
           "frame.offset_shift": "0.000000000",
           "frame.time_epoch": "1678804793.649819077",
           "frame.time_delta": "0.000189793",
-          "frame.time_delta_displayed": "0.000264296",
+          "frame.time_delta_displayed": "462.962563373",
           "frame.time_relative": "2179.653535587",
           "frame.number": "35839",
           "frame.len": "86",
@@ -1620,8 +1056,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "47549",
@@ -1712,154 +1148,11 @@
             "frame.interface_name": "any"
           },
           "frame.encap_type": "25",
-          "frame.time": "Mar 14, 2023 15:39:57.660746183 ora solare Europa occidentale",
-          "frame.offset_shift": "0.000000000",
-          "frame.time_epoch": "1678804797.660746183",
-          "frame.time_delta": "0.000186844",
-          "frame.time_delta_displayed": "4.010927106",
-          "frame.time_relative": "2183.664462693",
-          "frame.number": "35935",
-          "frame.len": "130",
-          "frame.cap_len": "130",
-          "frame.marked": "0",
-          "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:tcp:mqtt",
-          "frame.coloring_rule.name": "TCP",
-          "frame.coloring_rule.string": "tcp"
-        },
-        "sll": {
-          "sll.pkttype": "4",
-          "sll.hatype": "1",
-          "sll.halen": "6",
-          "sll.src.eth": "08:00:27:85:5b:af",
-          "sll.unused": "00:00",
-          "sll.etype": "0x0800"
-        },
-        "ip": {
-          "ip.version": "4",
-          "ip.hdr_len": "20",
-          "ip.dsfield": "0x00",
-          "ip.dsfield_tree": {
-            "ip.dsfield.dscp": "0",
-            "ip.dsfield.ecn": "0"
-          },
-          "ip.len": "114",
-          "ip.id": "0xa629",
-          "ip.flags": "0x02",
-          "ip.flags_tree": {
-            "ip.flags.rb": "0",
-            "ip.flags.df": "1",
-            "ip.flags.mf": "0"
-          },
-          "ip.frag_offset": "0",
-          "ip.ttl": "64",
-          "ip.proto": "6",
-          "ip.checksum": "0xfbfb",
-          "ip.checksum.status": "2",
-          "ip.src": "10.0.2.15",
-          "ip.addr": "10.0.2.15",
-          "ip.src_host": "10.0.2.15",
-          "ip.host": "10.0.2.15",
-          "ip.dst": "3.65.137.17",
-          "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
-        },
-        "tcp": {
-          "tcp.srcport": "45395",
-          "tcp.dstport": "1883",
-          "tcp.port": "45395",
-          "tcp.port": "1883",
-          "tcp.stream": "635",
-          "tcp.completeness": "47",
-          "tcp.len": "74",
-          "tcp.seq": "1",
-          "tcp.seq_raw": "857526248",
-          "tcp.nxtseq": "75",
-          "tcp.ack": "1",
-          "tcp.ack_raw": "353856002",
-          "tcp.hdr_len": "20",
-          "tcp.flags": "0x0018",
-          "tcp.flags_tree": {
-            "tcp.flags.res": "0",
-            "tcp.flags.ae": "0",
-            "tcp.flags.cwr": "0",
-            "tcp.flags.ece": "0",
-            "tcp.flags.urg": "0",
-            "tcp.flags.ack": "1",
-            "tcp.flags.push": "1",
-            "tcp.flags.reset": "0",
-            "tcp.flags.syn": "0",
-            "tcp.flags.fin": "0",
-            "tcp.flags.str": "·······AP···"
-          },
-          "tcp.window_size_value": "64240",
-          "tcp.window_size": "64240",
-          "tcp.window_size_scalefactor": "-2",
-          "tcp.checksum": "0x98c5",
-          "tcp.checksum.status": "2",
-          "tcp.urgent_pointer": "0",
-          "Timestamps": {
-            "tcp.time_relative": "0.015888423",
-            "tcp.time_delta": "0.000186844"
-          },
-          "tcp.analysis": {
-            "tcp.analysis.initial_rtt": "0.015701579",
-            "tcp.analysis.bytes_in_flight": "74",
-            "tcp.analysis.push_bytes_sent": "74"
-          },
-          "tcp.payload": "10:48:00:06:4d:51:49:73:64:70:03:0e:00:66:00:0d:74:61:76:65:6c:73:66:69:63:75:61:74:77:00:1a:6d:65:74:61:76:65:72:73:65:2f:66:61:63:69:6c:69:74:79:32:2f:66:6c:6f:6f:72:32:00:0f:65:72:72:6f:72:3a:20:70:70:75:65:66:77:6f:64",
-          "tcp.pdu.size": "74"
-        },
-        "mqtt": {
-          "mqtt.hdrflags": "0x10",
-          "mqtt.hdrflags_tree": {
-            "mqtt.msgtype": "1",
-            "mqtt.hdr_reserved": "0"
-          },
-          "mqtt.len": "72",
-          "mqtt.proto_len": "6",
-          "mqtt.protoname": "MQIsdp",
-          "mqtt.ver": "3",
-          "mqtt.conflags": "0x0e",
-          "mqtt.conflags_tree": {
-            "mqtt.conflag.uname": "0",
-            "mqtt.conflag.passwd": "0",
-            "mqtt.conflag.retain": "0",
-            "mqtt.conflag.qos": "1",
-            "mqtt.conflag.willflag": "1",
-            "mqtt.conflag.cleansess": "1",
-            "mqtt.conflag.reserved": "0"
-          },
-          "mqtt.kalive": "102",
-          "mqtt.clientid_len": "13",
-          "mqtt.clientid": "tavelsficuatw",
-          "mqtt.willtopic_len": "26",
-          "mqtt.willtopic": "metaverse/facility2/floor2",
-          "mqtt.willmsg_len": "15",
-          "mqtt.willmsg": "65:72:72:6f:72:3a:20:70:70:75:65:66:77:6f:64"
-        }
-      }
-    }
-  },
-  {
-    "_index": "packets-2023-03-14",
-    "_type": "doc",
-    "_score": null,
-    "_source": {
-      "layers": {
-        "frame": {
-          "frame.section_number": "1",
-          "frame.interface_id": "0",
-          "frame.interface_id_tree": {
-            "frame.interface_name": "any"
-          },
-          "frame.encap_type": "25",
           "frame.time": "Mar 14, 2023 15:40:00.674260951 ora solare Europa occidentale",
           "frame.offset_shift": "0.000000000",
           "frame.time_epoch": "1678804800.674260951",
           "frame.time_delta": "0.000471087",
-          "frame.time_delta_displayed": "3.013514768",
+          "frame.time_delta_displayed": "7.024441874",
           "frame.time_relative": "2186.677977461",
           "frame.number": "36106",
           "frame.len": "79",
@@ -1905,8 +1198,8 @@
           "ip.host": "10.0.2.15",
           "ip.dst": "3.65.137.17",
           "ip.addr": "3.65.137.17",
-          "ip.dst_host": "broker.hivemq.com",
-          "ip.host": "broker.hivemq.com"
+          "ip.dst_host": "3.65.137.17",
+          "ip.host": "3.65.137.17"
         },
         "tcp": {
           "tcp.srcport": "42827",
