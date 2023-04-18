@@ -20,7 +20,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1080,
         "y": 300,
         "wires": []
     },
@@ -29,7 +29,7 @@
         "type": "function",
         "z": "c78220242856c663",
         "name": "function 1",
-        "func": "global.set(\"fileGlobal\",msg.payload);\nreturn msg;",
+        "func": "global.set(\"fileGlobal\",msg.payload);\nglobal.set(\"messageCounter\",0);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -118,7 +118,7 @@
         "type": "function",
         "z": "c78220242856c663",
         "name": "function 2",
-        "func": "const file = global.get(\"fileGlobal\");\n\nif(!file) {\n    msg.payload = \"File not set yet\";\n    return msg;\n}\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + id) % 7711;\n\nmsg.payload = file[frameNumber];\nreturn msg;",
+        "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99) return msg; //if counter is greater than 99 ignore\n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nglobal.set(\"messageCounter\",counter+1); // increment global counter\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + id) % 7711;\n\nmsg.payload = file[frameNumber];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -128,7 +128,8 @@
         "y": 200,
         "wires": [
             [
-                "7d93c511c6c3e23e"
+                "7d93c511c6c3e23e",
+                "cacbdfc625b755cd"
             ]
         ]
     },
@@ -170,6 +171,23 @@
             [
                 "8d61c7a275a3adde"
             ]
+        ]
+    },
+    {
+        "id": "cacbdfc625b755cd",
+        "type": "function",
+        "z": "c78220242856c663",
+        "name": "parser TODO",
+        "func": "if (msg.payload != \"NOTREADY\") {\n    //todo: should parse the msg payload and return couples publish, payload\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 100,
+        "wires": [
+            []
         ]
     },
     {
