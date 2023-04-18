@@ -1,0 +1,202 @@
+[
+    {
+        "id": "c78220242856c663",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7d93c511c6c3e23e",
+        "type": "debug",
+        "z": "c78220242856c663",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8d61c7a275a3adde",
+        "type": "function",
+        "z": "c78220242856c663",
+        "name": "function 1",
+        "func": "global.set(\"fileGlobal\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 400,
+        "wires": [
+            [
+                "839e415d3837bee8"
+            ]
+        ]
+    },
+    {
+        "id": "f8fe91193bcc5eb7",
+        "type": "file in",
+        "z": "c78220242856c663",
+        "name": "",
+        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/challenge2023_2.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 630,
+        "y": 600,
+        "wires": [
+            [
+                "394ad2cd476b2409"
+            ]
+        ]
+    },
+    {
+        "id": "212b042970963412",
+        "type": "mqtt in",
+        "z": "c78220242856c663",
+        "name": "",
+        "topic": "polimi/challenge_2/2023/id_code_generator",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "72f6a801ba85e77a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "6411f3dd52283ffc"
+            ]
+        ]
+    },
+    {
+        "id": "41922324fe892a0b",
+        "type": "inject",
+        "z": "c78220242856c663",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "f8fe91193bcc5eb7"
+            ]
+        ]
+    },
+    {
+        "id": "6411f3dd52283ffc",
+        "type": "function",
+        "z": "c78220242856c663",
+        "name": "function 2",
+        "func": "const file = global.get(\"fileGlobal\");\n\nif(!file) {\n    msg.payload = \"File not set yet\";\n    return msg;\n}\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + id) % 7711;\n\nmsg.payload = file[frameNumber];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 200,
+        "wires": [
+            [
+                "7d93c511c6c3e23e"
+            ]
+        ]
+    },
+    {
+        "id": "839e415d3837bee8",
+        "type": "debug",
+        "z": "c78220242856c663",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "394ad2cd476b2409",
+        "type": "csv",
+        "z": "c78220242856c663",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 650,
+        "y": 400,
+        "wires": [
+            [
+                "8d61c7a275a3adde"
+            ]
+        ]
+    },
+    {
+        "id": "72f6a801ba85e77a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
