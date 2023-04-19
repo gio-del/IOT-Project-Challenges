@@ -1,6 +1,6 @@
 [
     {
-        "id": "c78220242856c663",
+        "id": "35a9873add9fb86f",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "7d93c511c6c3e23e",
+        "id": "85bb50166a58a587",
         "type": "debug",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -20,14 +20,14 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 300,
+        "x": 1040,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "8d61c7a275a3adde",
+        "id": "0b1a4e1dbed6219d",
         "type": "function",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "function 1",
         "func": "global.set(\"fileGlobal\",msg.payload);\nglobal.set(\"messageCounter\",0);\nreturn msg;",
         "outputs": 1,
@@ -35,18 +35,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 400,
+        "x": 920,
+        "y": 480,
         "wires": [
             [
-                "839e415d3837bee8"
+                "de26dc36a4d79007"
             ]
         ]
     },
     {
-        "id": "f8fe91193bcc5eb7",
+        "id": "906ab85068caa990",
         "type": "file in",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "",
         "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/challenge2023_2.csv",
         "filenameType": "str",
@@ -55,18 +55,18 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 630,
-        "y": 600,
+        "x": 650,
+        "y": 680,
         "wires": [
             [
-                "394ad2cd476b2409"
+                "47663c5f08a48c60"
             ]
         ]
     },
     {
-        "id": "212b042970963412",
+        "id": "d9e6dab7d9d294fb",
         "type": "mqtt in",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "",
         "topic": "polimi/challenge_2/2023/id_code_generator",
         "qos": "2",
@@ -76,18 +76,18 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 430,
-        "y": 80,
+        "x": 390,
+        "y": 100,
         "wires": [
             [
-                "6411f3dd52283ffc"
+                "7df04cee6382e03e"
             ]
         ]
     },
     {
-        "id": "41922324fe892a0b",
+        "id": "d1d6ebaee0c24873",
         "type": "inject",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "",
         "props": [
             {
@@ -105,38 +105,38 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
-        "y": 600,
+        "x": 230,
+        "y": 520,
         "wires": [
             [
-                "f8fe91193bcc5eb7"
+                "906ab85068caa990"
             ]
         ]
     },
     {
-        "id": "6411f3dd52283ffc",
+        "id": "7df04cee6382e03e",
         "type": "function",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "function 2",
-        "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99) return msg; //if counter is greater than 99 ignore\n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nglobal.set(\"messageCounter\",counter+1); // increment global counter\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + id) % 7711;\n\nmsg.payload = file[frameNumber];\nreturn msg;",
+        "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99){\n    msg.payload = \"FINISHED\";\n    return msg; //if counter is greater than 99 ignore\n} \n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nglobal.set(\"messageCounter\",counter+1); // increment global counter\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + id) % 7711;\n\nmsg.payload = file[frameNumber];\nmsg.payload.previousID = id;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
-        "y": 200,
+        "x": 740,
+        "y": 220,
         "wires": [
             [
-                "7d93c511c6c3e23e",
-                "cacbdfc625b755cd"
+                "85bb50166a58a587",
+                "fed456579450fb68"
             ]
         ]
     },
     {
-        "id": "839e415d3837bee8",
+        "id": "de26dc36a4d79007",
         "type": "debug",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -146,14 +146,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1200,
-        "y": 400,
+        "x": 1220,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "394ad2cd476b2409",
+        "id": "47663c5f08a48c60",
         "type": "csv",
-        "z": "c78220242856c663",
+        "z": "35a9873add9fb86f",
         "name": "",
         "sep": ",",
         "hdrin": "",
@@ -165,30 +165,68 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 650,
-        "y": 400,
+        "x": 670,
+        "y": 480,
         "wires": [
             [
-                "8d61c7a275a3adde"
+                "0b1a4e1dbed6219d"
             ]
         ]
     },
     {
-        "id": "cacbdfc625b755cd",
+        "id": "fed456579450fb68",
         "type": "function",
-        "z": "c78220242856c663",
-        "name": "parser TODO",
-        "func": "if (msg.payload != \"NOTREADY\") {\n    //todo: should parse the msg payload and return couples publish, payload\n}\nreturn msg;",
+        "z": "35a9873add9fb86f",
+        "name": "parser",
+        "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload.col9; // messages\n       const payloads = msg.payload.col10; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    \n    if(payloads) {\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": new Date().getTime(), \"id\": msg.payload.previousID, \"payload\": payload\n                };\n            msg.topic = \"/polimi/iot2023/challenge2/10700658\";\n            node.send(msg);\n        })\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = \"\";\n        msg.topic = \"/polimi/iot2023/challenge2/10700658\";\n        node.send(msg);\n    }\n\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1000,
-        "y": 100,
+        "x": 930,
+        "y": 120,
         "wires": [
-            []
+            [
+                "1daf3b4ddd6af424",
+                "7fdb69f26c4ef849"
+            ]
         ]
+    },
+    {
+        "id": "7fdb69f26c4ef849",
+        "type": "mqtt out",
+        "z": "35a9873add9fb86f",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "72f6a801ba85e77a",
+        "x": 1250,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1daf3b4ddd6af424",
+        "type": "debug",
+        "z": "35a9873add9fb86f",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "72f6a801ba85e77a",
