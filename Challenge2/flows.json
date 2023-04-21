@@ -1,6 +1,6 @@
 [
     {
-        "id": "a3e002961d9d4b05",
+        "id": "73b729f3a8b7a19f",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,11 +8,11 @@
         "env": []
     },
     {
-        "id": "c23e27a8143fe84e",
+        "id": "2677cef6a12b3a65",
         "type": "debug",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "FILTER_OUT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -25,9 +25,9 @@
         "wires": []
     },
     {
-        "id": "8f8f25491e57d509",
+        "id": "2c91e70e9d444d7c",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "FLOW_INIT",
         "func": "global.set(\"fileGlobal\",msg.payload);\nglobal.set(\"messageCounter\",0);\nreturn msg;",
         "outputs": 1,
@@ -39,14 +39,14 @@
         "y": 460,
         "wires": [
             [
-                "907bad9f27e4af8d"
+                "f77c1f5f4535b01b"
             ]
         ]
     },
     {
-        "id": "a883362d8a8f41c6",
+        "id": "68f2363bed00c9af",
         "type": "file in",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "input_CSV",
         "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/challenge2023_2.csv",
         "filenameType": "str",
@@ -59,14 +59,14 @@
         "y": 540,
         "wires": [
             [
-                "7c23ec5eb62a1890"
+                "3cae19986665f892"
             ]
         ]
     },
     {
-        "id": "ff2bd235c0e8e23e",
+        "id": "7192326547f7e231",
         "type": "mqtt in",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "code_generator",
         "topic": "polimi/challenge_2/2023/id_code_generator",
         "qos": "2",
@@ -80,16 +80,15 @@
         "y": 200,
         "wires": [
             [
-                "d37376563e132832",
-                "a915bc5152b96ccd",
-                "b81f0051696e98d5"
+                "d41fc0850776ba8e",
+                "71f296c51d2bc42d"
             ]
         ]
     },
     {
-        "id": "700f2de3fec0702f",
+        "id": "aad7a7b43f2e12d2",
         "type": "inject",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "",
         "props": [
             {
@@ -111,14 +110,14 @@
         "y": 500,
         "wires": [
             [
-                "a883362d8a8f41c6"
+                "68f2363bed00c9af"
             ]
         ]
     },
     {
-        "id": "b81f0051696e98d5",
+        "id": "71f296c51d2bc42d",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "FILTER",
         "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99) {\n    msg.payload = \"FINISHED\";\n    return msg; //if counter is greater than 99 ignore\n} \n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nif(msg.payload.id) { // so that wrong formatted code are not considered\n\n    global.set(\"messageCounter\",counter+1); // increment global counter\n\n    const lastDigit = 658;\n    const id = msg.payload.id;\n\n    const frameNumber = (lastDigit + parseInt(id)) % 7711;\n    console.log(lastDigit, id, frameNumber);\n    if(frameNumber!=0) {\n        msg.payload = file[frameNumber-1];\n        msg.payload.previousID = id;\n        return msg;\n    }\n}",
         "outputs": 1,
@@ -130,15 +129,15 @@
         "y": 200,
         "wires": [
             [
-                "c23e27a8143fe84e",
-                "643a4b040400c541"
+                "2677cef6a12b3a65",
+                "dc9a4fb13a0e463d"
             ]
         ]
     },
     {
-        "id": "907bad9f27e4af8d",
+        "id": "f77c1f5f4535b01b",
         "type": "debug",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "input_file_debug",
         "active": false,
         "tosidebar": true,
@@ -153,9 +152,9 @@
         "wires": []
     },
     {
-        "id": "7c23ec5eb62a1890",
+        "id": "3cae19986665f892",
         "type": "csv",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -171,16 +170,16 @@
         "y": 460,
         "wires": [
             [
-                "8f8f25491e57d509"
+                "2c91e70e9d444d7c"
             ]
         ]
     },
     {
-        "id": "643a4b040400c541",
+        "id": "dc9a4fb13a0e463d",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "PARSER",
-        "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload[\"Info\"]; // messages\n    let payloads = msg.payload[\"Message\"]; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    const previousID = msg.payload.previousID;\n\n    if(payloads) {\n        // check for malformed packets\n        const lastClosedBrackets = payloads.lastIndexOf(\"}\");\n        const lastOpenBrackets = payloads.lastIndexOf(\"{\");\n        let malformed = \"\";\n\n        if (lastClosedBrackets < lastOpenBrackets) {\n            malformed = payloads.slice(lastOpenBrackets, payloads.length);\n            payloads = payloads.slice(0,lastOpenBrackets-1);\n        }\n\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": Date.now(), \"id\": previousID, \"payload\": payload\n                };\n            node.send(msg);\n        })\n        if(malformed.length > 0) {\n            emptyPublishPayloads -= 1; // it does count as a non-empty payload\n            msg.payload = {\"timestamp\": Date.now(), \"id\": previousID, \"payload\": malformed};\n            node.send(msg);\n        }\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = {\n            \"timestamp\": Date.now(), \"id\": previousID, \"payload\": \"\"\n        };\n        node.send(msg);\n    }\n}",
+        "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload[\"Info\"]; // messages\n    let payloads = msg.payload[\"Message\"]; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    const previousID = msg.payload.previousID;\n\n    if(payloads) {\n        // check for malformed packets\n        const lastClosedBrackets = payloads.lastIndexOf(\"}\");\n        const lastOpenBrackets = payloads.lastIndexOf(\"{\");\n        let malformed = \"\";\n\n        if (lastClosedBrackets < lastOpenBrackets) {\n            malformed = payloads.slice(lastOpenBrackets, payloads.length);\n            payloads = payloads.slice(0,lastOpenBrackets-1);\n        }\n\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": JSON.stringify(payload)\n                };\n            node.send(msg);\n        })\n        if(malformed.length > 0) {\n            emptyPublishPayloads -= 1; // it does count as a non-empty payload\n            msg.payload = {\"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": malformed};\n            node.send(msg);\n        }\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = {\n            \"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": \"\"\n        };\n        node.send(msg);\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -190,15 +189,15 @@
         "y": 120,
         "wires": [
             [
-                "e09299f48db1a785",
-                "3f3577ca931d0e99"
+                "8b0dfed0330f1b46",
+                "040d565b9e17ed35"
             ]
         ]
     },
     {
-        "id": "3f3577ca931d0e99",
+        "id": "040d565b9e17ed35",
         "type": "mqtt out",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "publish",
         "topic": "/polimi/iot2023/challenge2/10700658",
         "qos": "2",
@@ -214,9 +213,9 @@
         "wires": []
     },
     {
-        "id": "e09299f48db1a785",
+        "id": "8b0dfed0330f1b46",
         "type": "debug",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "PARSER_OUT",
         "active": true,
         "tosidebar": true,
@@ -231,9 +230,9 @@
         "wires": []
     },
     {
-        "id": "d37376563e132832",
+        "id": "d41fc0850776ba8e",
         "type": "debug",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "debug_code_generator",
         "active": false,
         "tosidebar": true,
@@ -248,9 +247,9 @@
         "wires": []
     },
     {
-        "id": "4d4a19e6abba7f44",
+        "id": "6e358946da84bb0d",
         "type": "mqtt in",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "subscription",
         "topic": "/polimi/iot2023/challenge2/10700658",
         "qos": "2",
@@ -264,16 +263,16 @@
         "y": 700,
         "wires": [
             [
-                "e8f2e6eb2aaac691"
+                "1f552e4d1c9b7fd0"
             ]
         ]
     },
     {
-        "id": "e8f2e6eb2aaac691",
+        "id": "1f552e4d1c9b7fd0",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "tempcelsius_filter",
-        "func": "const payload = msg.payload.payload;\n\nif (payload.type === \"temperature\" && payload.unit === \"C\") {\n    msg.payload = payload;\n    return msg;\n}\n",
+        "func": "\ntry {\n    const payload = JSON.parse(msg.payload.payload);\n\n    if (payload.type === \"temperature\" && payload.unit === \"C\") {\n       msg.payload = payload;\n       return msg;\n    }\n} catch {}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -283,15 +282,15 @@
         "y": 700,
         "wires": [
             [
-                "411d66710e1c2dff",
-                "f92ee5ad9abe6a96"
+                "34b9733fc3dbc115",
+                "6017b346ebd83c0f"
             ]
         ]
     },
     {
-        "id": "f92ee5ad9abe6a96",
+        "id": "6017b346ebd83c0f",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "WRITER",
         "func": "msg.payload = \"\\\"\" + JSON.stringify(msg.payload) + \"\\\"\";\nreturn msg;",
         "outputs": 1,
@@ -303,14 +302,14 @@
         "y": 600,
         "wires": [
             [
-                "3e3c0daf6e453a2f"
+                "efd3cf16fc8e921f"
             ]
         ]
     },
     {
-        "id": "3e3c0daf6e453a2f",
+        "id": "efd3cf16fc8e921f",
         "type": "file",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "csv_output_write",
         "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/output.csv",
         "filenameType": "str",
@@ -325,9 +324,9 @@
         ]
     },
     {
-        "id": "411d66710e1c2dff",
+        "id": "34b9733fc3dbc115",
         "type": "function",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "PLOTTER",
         "func": "msg.payload = msg.payload.range[1];\nreturn msg;",
         "outputs": 1,
@@ -339,14 +338,14 @@
         "y": 760,
         "wires": [
             [
-                "3637e47b78c40821"
+                "a3131cc55947bd52"
             ]
         ]
     },
     {
-        "id": "3637e47b78c40821",
+        "id": "a3131cc55947bd52",
         "type": "ui_chart",
-        "z": "a3e002961d9d4b05",
+        "z": "73b729f3a8b7a19f",
         "name": "chart",
         "group": "ed654e8fe89770c3",
         "order": 0,
@@ -383,42 +382,6 @@
         "className": "",
         "x": 1090,
         "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a915bc5152b96ccd",
-        "type": "function",
-        "z": "a3e002961d9d4b05",
-        "name": "function 1",
-        "func": "msg.payload = global.get(\"messageCounter\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 60,
-        "wires": [
-            [
-                "2734e91f1d7e6747"
-            ]
-        ]
-    },
-    {
-        "id": "2734e91f1d7e6747",
-        "type": "file",
-        "z": "a3e002961d9d4b05",
-        "name": "debug counter",
-        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/counter",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 660,
-        "y": 60,
         "wires": [
             []
         ]
