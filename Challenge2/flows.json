@@ -12,7 +12,7 @@
         "type": "debug",
         "z": "a3e002961d9d4b05",
         "name": "FILTER_OUT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -21,22 +21,22 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 960,
-        "y": 300,
+        "y": 320,
         "wires": []
     },
     {
         "id": "8f8f25491e57d509",
         "type": "function",
         "z": "a3e002961d9d4b05",
-        "name": "init",
+        "name": "FLOW_INIT",
         "func": "global.set(\"fileGlobal\",msg.payload);\nglobal.set(\"messageCounter\",0);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 990,
-        "y": 420,
+        "x": 930,
+        "y": 460,
         "wires": [
             [
                 "907bad9f27e4af8d"
@@ -55,8 +55,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 570,
-        "y": 500,
+        "x": 490,
+        "y": 540,
         "wires": [
             [
                 "7c23ec5eb62a1890"
@@ -76,12 +76,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 200,
-        "y": 160,
+        "x": 220,
+        "y": 200,
         "wires": [
             [
-                "b81f0051696e98d5",
-                "d37376563e132832"
+                "d37376563e132832",
+                "a915bc5152b96ccd",
+                "b81f0051696e98d5"
             ]
         ]
     },
@@ -106,8 +107,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 310,
-        "y": 460,
+        "x": 230,
+        "y": 500,
         "wires": [
             [
                 "a883362d8a8f41c6"
@@ -118,15 +119,15 @@
         "id": "b81f0051696e98d5",
         "type": "function",
         "z": "a3e002961d9d4b05",
-        "name": "filter",
-        "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99){\n    msg.payload = \"FINISHED\";\n    return msg; //if counter is greater than 99 ignore\n} \n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nglobal.set(\"messageCounter\",counter+1); // increment global counter\n\nconst lastDigit = 658;\nconst id = msg.payload.id;\n\nconst frameNumber = (lastDigit + parseInt(id)) % 7711;\nconsole.log(lastDigit, id, frameNumber);\nmsg.payload = file[frameNumber];\nmsg.payload.previousID = id;\nreturn msg;",
+        "name": "FILTER",
+        "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99) {\n    msg.payload = \"FINISHED\";\n    return msg; //if counter is greater than 99 ignore\n} \n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nif(msg.payload.id) { // so that wrong formatted code are not considered\n\n    global.set(\"messageCounter\",counter+1); // increment global counter\n\n    const lastDigit = 658;\n    const id = msg.payload.id;\n\n    const frameNumber = (lastDigit + parseInt(id)) % 7711;\n    console.log(lastDigit, id, frameNumber);\n    if(frameNumber!=0) {\n        msg.payload = file[frameNumber-1];\n        msg.payload.previousID = id;\n        return msg;\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 40,
+        "x": 660,
+        "y": 200,
         "wires": [
             [
                 "c23e27a8143fe84e",
@@ -138,7 +139,7 @@
         "id": "907bad9f27e4af8d",
         "type": "debug",
         "z": "a3e002961d9d4b05",
-        "name": "debug 2",
+        "name": "input_file_debug",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -147,8 +148,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1200,
-        "y": 420,
+        "x": 1140,
+        "y": 460,
         "wires": []
     },
     {
@@ -157,7 +158,7 @@
         "z": "a3e002961d9d4b05",
         "name": "",
         "sep": ",",
-        "hdrin": "",
+        "hdrin": true,
         "hdrout": "none",
         "multi": "mult",
         "ret": "\\n",
@@ -166,8 +167,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 790,
-        "y": 420,
+        "x": 730,
+        "y": 460,
         "wires": [
             [
                 "8f8f25491e57d509"
@@ -178,15 +179,15 @@
         "id": "643a4b040400c541",
         "type": "function",
         "z": "a3e002961d9d4b05",
-        "name": "parser",
-        "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload.col9; // messages\n    const payloads = msg.payload.col10; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    const previousID = msg.payload.previousID;\n\n    const topic = \"/polimi/iot2023/challenge2/10700658\";\n\n    if(payloads) {\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": new Date().toISOString(), \"id\": previousID, \"payload\": payload\n                };\n            msg.topic = topic;\n            node.send(msg);\n        })\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = {\n            \"timestamp\": new Date().toISOString(), \"id\": previousID, \"payload\": \"\"\n        };\n        msg.topic = topic;\n        node.send(msg);\n    }\n\n}",
+        "name": "PARSER",
+        "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload[\"Info\"]; // messages\n    let payloads = msg.payload[\"Message\"]; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    const previousID = msg.payload.previousID;\n\n    if(payloads) {\n        // check for malformed packets\n        const lastClosedBrackets = payloads.lastIndexOf(\"}\");\n        const lastOpenBrackets = payloads.lastIndexOf(\"{\");\n        let malformed = \"\";\n\n        if (lastClosedBrackets < lastOpenBrackets) {\n            malformed = payloads.slice(lastOpenBrackets, payloads.length);\n            payloads = payloads.slice(0,lastOpenBrackets-1);\n        }\n\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": Date.now(), \"id\": previousID, \"payload\": payload\n                };\n            node.send(msg);\n        })\n        if(malformed.length > 0) {\n            emptyPublishPayloads -= 1; // it does count as a non-empty payload\n            msg.payload = {\"timestamp\": Date.now(), \"id\": previousID, \"payload\": malformed};\n            node.send(msg);\n        }\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = {\n            \"timestamp\": Date.now(), \"id\": previousID, \"payload\": \"\"\n        };\n        node.send(msg);\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
-        "y": 100,
+        "x": 940,
+        "y": 120,
         "wires": [
             [
                 "e09299f48db1a785",
@@ -198,8 +199,8 @@
         "id": "3f3577ca931d0e99",
         "type": "mqtt out",
         "z": "a3e002961d9d4b05",
-        "name": "",
-        "topic": "",
+        "name": "publish",
+        "topic": "/polimi/iot2023/challenge2/10700658",
         "qos": "2",
         "retain": "false",
         "respTopic": "",
@@ -208,8 +209,8 @@
         "correl": "",
         "expiry": "",
         "broker": "72f6a801ba85e77a",
-        "x": 1110,
-        "y": 20,
+        "x": 1160,
+        "y": 40,
         "wires": []
     },
     {
@@ -217,7 +218,7 @@
         "type": "debug",
         "z": "a3e002961d9d4b05",
         "name": "PARSER_OUT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -225,8 +226,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1140,
-        "y": 220,
+        "x": 1160,
+        "y": 240,
         "wires": []
     },
     {
@@ -242,8 +243,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 300,
+        "x": 470,
+        "y": 320,
         "wires": []
     },
     {
@@ -259,8 +260,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
-        "y": 620,
+        "x": 210,
+        "y": 700,
         "wires": [
             [
                 "e8f2e6eb2aaac691"
@@ -278,45 +279,28 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 610,
         "y": 700,
         "wires": [
             [
-                "82d9287c17a2e585",
-                "411d66710e1c2dff"
+                "411d66710e1c2dff",
+                "f92ee5ad9abe6a96"
             ]
         ]
-    },
-    {
-        "id": "82d9287c17a2e585",
-        "type": "debug",
-        "z": "a3e002961d9d4b05",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 840,
-        "wires": []
     },
     {
         "id": "f92ee5ad9abe6a96",
         "type": "function",
         "z": "a3e002961d9d4b05",
-        "name": "writer",
-        "func": "//TODO: this should pick the msg and save each message in a file (GLOBAL)\nreturn msg;",
+        "name": "WRITER",
+        "func": "msg.payload = \"\\\"\" + JSON.stringify(msg.payload) + \"\\\"\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 620,
+        "x": 880,
+        "y": 600,
         "wires": [
             [
                 "3e3c0daf6e453a2f"
@@ -327,15 +311,15 @@
         "id": "3e3c0daf6e453a2f",
         "type": "file",
         "z": "a3e002961d9d4b05",
-        "name": "",
-        "filename": "",
+        "name": "csv_output_write",
+        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/output.csv",
         "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1040,
-        "y": 560,
+        "x": 1130,
+        "y": 600,
         "wires": [
             []
         ]
@@ -344,15 +328,15 @@
         "id": "411d66710e1c2dff",
         "type": "function",
         "z": "a3e002961d9d4b05",
-        "name": "plotter",
+        "name": "PLOTTER",
         "func": "msg.payload = msg.payload.range[1];\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 930,
-        "y": 700,
+        "x": 890,
+        "y": 760,
         "wires": [
             [
                 "3637e47b78c40821"
@@ -374,7 +358,7 @@
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
-        "dot": false,
+        "dot": true,
         "ymin": "",
         "ymax": "",
         "removeOlder": 1,
@@ -397,8 +381,44 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1230,
-        "y": 700,
+        "x": 1090,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a915bc5152b96ccd",
+        "type": "function",
+        "z": "a3e002961d9d4b05",
+        "name": "function 1",
+        "func": "msg.payload = global.get(\"messageCounter\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "2734e91f1d7e6747"
+            ]
+        ]
+    },
+    {
+        "id": "2734e91f1d7e6747",
+        "type": "file",
+        "z": "a3e002961d9d4b05",
+        "name": "debug counter",
+        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/counter",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 660,
+        "y": 60,
         "wires": [
             []
         ]
