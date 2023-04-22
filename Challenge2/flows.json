@@ -12,7 +12,7 @@
         "type": "debug",
         "z": "73b729f3a8b7a19f",
         "name": "FILTER_OUT",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -80,8 +80,7 @@
         "y": 200,
         "wires": [
             [
-                "d41fc0850776ba8e",
-                "71f296c51d2bc42d"
+                "d41fc0850776ba8e"
             ]
         ]
     },
@@ -102,7 +101,7 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "2",
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -217,7 +216,7 @@
         "type": "debug",
         "z": "73b729f3a8b7a19f",
         "name": "PARSER_OUT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -262,9 +261,7 @@
         "x": 210,
         "y": 700,
         "wires": [
-            [
-                "1f552e4d1c9b7fd0"
-            ]
+            []
         ]
     },
     {
@@ -292,7 +289,7 @@
         "type": "function",
         "z": "73b729f3a8b7a19f",
         "name": "WRITER",
-        "func": "msg.payload = \"\\\"\" + JSON.stringify(msg.payload) + \"\\\"\";\nreturn msg;",
+        "func": "msg.payload = \"\\\"\" + JSON.stringify(msg.payload).replaceAll(\"\\\"\",\"\\\"\\\"\") + \"\\\"\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -311,7 +308,7 @@
         "type": "file",
         "z": "73b729f3a8b7a19f",
         "name": "csv_output_write",
-        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/output.csv",
+        "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/10700658_10618906.csv",
         "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
@@ -384,6 +381,35 @@
         "y": 760,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e517d4082cd9fcd8",
+        "type": "inject",
+        "z": "73b729f3a8b7a19f",
+        "name": "reset_chart",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 890,
+        "y": 700,
+        "wires": [
+            [
+                "a3131cc55947bd52"
+            ]
         ]
     },
     {
