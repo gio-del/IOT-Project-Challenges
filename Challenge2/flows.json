@@ -1,6 +1,6 @@
 [
     {
-        "id": "73b729f3a8b7a19f",
+        "id": "5e8f59c5b32b2f8a",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "2677cef6a12b3a65",
+        "id": "01329b068ec5c2a4",
         "type": "debug",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "FILTER_OUT",
         "active": true,
         "tosidebar": true,
@@ -25,9 +25,9 @@
         "wires": []
     },
     {
-        "id": "2c91e70e9d444d7c",
+        "id": "bd0f4f6088f32dac",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "FLOW_INIT",
         "func": "global.set(\"fileGlobal\",msg.payload);\nglobal.set(\"messageCounter\",0);\nreturn msg;",
         "outputs": 1,
@@ -39,14 +39,14 @@
         "y": 460,
         "wires": [
             [
-                "f77c1f5f4535b01b"
+                "aef0e03462967aa9"
             ]
         ]
     },
     {
-        "id": "68f2363bed00c9af",
+        "id": "7f9db4c655319397",
         "type": "file in",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "input_CSV",
         "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/challenge2023_2.csv",
         "filenameType": "str",
@@ -59,14 +59,14 @@
         "y": 540,
         "wires": [
             [
-                "3cae19986665f892"
+                "3809397ced337e09"
             ]
         ]
     },
     {
-        "id": "7192326547f7e231",
+        "id": "a3fbb768d3005b06",
         "type": "mqtt in",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "code_generator",
         "topic": "polimi/challenge_2/2023/id_code_generator",
         "qos": "2",
@@ -80,14 +80,15 @@
         "y": 200,
         "wires": [
             [
-                "d41fc0850776ba8e"
+                "505594eae4847ade",
+                "af79101d8cca9996"
             ]
         ]
     },
     {
-        "id": "aad7a7b43f2e12d2",
+        "id": "2230a2b47f6eb25e",
         "type": "inject",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "",
         "props": [
             {
@@ -109,14 +110,14 @@
         "y": 500,
         "wires": [
             [
-                "68f2363bed00c9af"
+                "7f9db4c655319397"
             ]
         ]
     },
     {
-        "id": "71f296c51d2bc42d",
+        "id": "af79101d8cca9996",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "FILTER",
         "func": "const file = global.get(\"fileGlobal\");\nconst counter = global.get(\"messageCounter\");\n\nif(counter > 99) {\n    msg.payload = \"FINISHED\";\n    return msg; //if counter is greater than 99 ignore\n} \n\nif(!file) {\n    msg.payload = \"NOTREADY\";\n    return msg;\n}\n\nif(msg.payload.id) { // so that wrong formatted code are not considered\n\n    global.set(\"messageCounter\",counter+1); // increment global counter\n\n    const lastDigit = 658;\n    const id = msg.payload.id;\n\n    const frameNumber = (lastDigit + parseInt(id)) % 7711;\n    console.log(lastDigit, id, frameNumber);\n    if(frameNumber!=0) {\n        msg.payload = file[frameNumber-1];\n        msg.payload.previousID = id;\n        return msg;\n    }\n}",
         "outputs": 1,
@@ -128,15 +129,15 @@
         "y": 200,
         "wires": [
             [
-                "2677cef6a12b3a65",
-                "dc9a4fb13a0e463d"
+                "01329b068ec5c2a4",
+                "9a752db2e3ab314d"
             ]
         ]
     },
     {
-        "id": "f77c1f5f4535b01b",
+        "id": "aef0e03462967aa9",
         "type": "debug",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "input_file_debug",
         "active": false,
         "tosidebar": true,
@@ -151,9 +152,9 @@
         "wires": []
     },
     {
-        "id": "3cae19986665f892",
+        "id": "3809397ced337e09",
         "type": "csv",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "",
         "sep": ",",
         "hdrin": true,
@@ -169,14 +170,14 @@
         "y": 460,
         "wires": [
             [
-                "2c91e70e9d444d7c"
+                "bd0f4f6088f32dac"
             ]
         ]
     },
     {
-        "id": "dc9a4fb13a0e463d",
+        "id": "9a752db2e3ab314d",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "PARSER",
         "func": "if (msg.payload != \"NOTREADY\" && msg.payload != \"FINISHED\") {\n    //todo: should parse the msg payload and return couples publish, payload\n\n    const messages = msg.payload[\"Info\"]; // messages\n    let payloads = msg.payload[\"Message\"]; // payloads\n\n    const publishMessages = messages.split(\",\").filter(str => str.startsWith(\"Publish Message\"))\n\n    let emptyPublishPayloads = publishMessages.length;\n\n    const previousID = msg.payload.previousID;\n\n    if(payloads) {\n        // check for malformed packets\n        const lastClosedBrackets = payloads.lastIndexOf(\"}\");\n        const lastOpenBrackets = payloads.lastIndexOf(\"{\");\n        let malformed = \"\";\n\n        if (lastClosedBrackets < lastOpenBrackets) {\n            malformed = payloads.slice(lastOpenBrackets, payloads.length);\n            payloads = payloads.slice(0,lastOpenBrackets-1);\n        }\n\n        const parsedPayloads = JSON.parse('[' + payloads +']');\n        emptyPublishPayloads -= parsedPayloads.length;\n        parsedPayloads.forEach(payload => {\n            msg.payload = {\n                \"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": JSON.stringify(payload)\n                };\n            node.send(msg);\n        })\n        if(malformed.length > 0) {\n            emptyPublishPayloads -= 1; // it does count as a non-empty payload\n            msg.payload = {\"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": malformed};\n            node.send(msg);\n        }\n    }\n\n    for(let i=0;i<emptyPublishPayloads;i++) {\n        msg.payload = {\n            \"timestamp\": Date.now().toString(), \"id\": previousID, \"payload\": \"\"\n        };\n        node.send(msg);\n    }\n}",
         "outputs": 1,
@@ -188,15 +189,15 @@
         "y": 120,
         "wires": [
             [
-                "8b0dfed0330f1b46",
-                "040d565b9e17ed35"
+                "b7aab70a262a982a",
+                "fd3237f29fe7d331"
             ]
         ]
     },
     {
-        "id": "040d565b9e17ed35",
+        "id": "fd3237f29fe7d331",
         "type": "mqtt out",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "publish",
         "topic": "/polimi/iot2023/challenge2/10700658",
         "qos": "2",
@@ -212,9 +213,9 @@
         "wires": []
     },
     {
-        "id": "8b0dfed0330f1b46",
+        "id": "b7aab70a262a982a",
         "type": "debug",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "PARSER_OUT",
         "active": false,
         "tosidebar": true,
@@ -229,9 +230,9 @@
         "wires": []
     },
     {
-        "id": "d41fc0850776ba8e",
+        "id": "505594eae4847ade",
         "type": "debug",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "debug_code_generator",
         "active": false,
         "tosidebar": true,
@@ -246,9 +247,9 @@
         "wires": []
     },
     {
-        "id": "6e358946da84bb0d",
+        "id": "02b381e38763ac21",
         "type": "mqtt in",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "subscription",
         "topic": "/polimi/iot2023/challenge2/10700658",
         "qos": "2",
@@ -261,13 +262,15 @@
         "x": 210,
         "y": 700,
         "wires": [
-            []
+            [
+                "cfff7b284830b582"
+            ]
         ]
     },
     {
-        "id": "1f552e4d1c9b7fd0",
+        "id": "cfff7b284830b582",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "tempcelsius_filter",
         "func": "\ntry {\n    const payload = JSON.parse(msg.payload.payload);\n\n    if (payload.type === \"temperature\" && payload.unit === \"C\") {\n       msg.payload = payload;\n       return msg;\n    }\n} catch {}",
         "outputs": 1,
@@ -279,15 +282,15 @@
         "y": 700,
         "wires": [
             [
-                "34b9733fc3dbc115",
-                "6017b346ebd83c0f"
+                "dc27d8f88080b768",
+                "ccbefd3a577244b7"
             ]
         ]
     },
     {
-        "id": "6017b346ebd83c0f",
+        "id": "ccbefd3a577244b7",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "WRITER",
         "func": "msg.payload = \"\\\"\" + JSON.stringify(msg.payload).replaceAll(\"\\\"\",\"\\\"\\\"\") + \"\\\"\";\nreturn msg;",
         "outputs": 1,
@@ -299,14 +302,14 @@
         "y": 600,
         "wires": [
             [
-                "efd3cf16fc8e921f"
+                "98789b93014f0754"
             ]
         ]
     },
     {
-        "id": "efd3cf16fc8e921f",
+        "id": "98789b93014f0754",
         "type": "file",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "csv_output_write",
         "filename": "/home/gio-del/Desktop/Projects/IOT-Project-Challenges/Challenge2/10700658_10618906.csv",
         "filenameType": "str",
@@ -321,9 +324,9 @@
         ]
     },
     {
-        "id": "34b9733fc3dbc115",
+        "id": "dc27d8f88080b768",
         "type": "function",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "PLOTTER",
         "func": "msg.payload = msg.payload.range[1];\nreturn msg;",
         "outputs": 1,
@@ -335,14 +338,14 @@
         "y": 760,
         "wires": [
             [
-                "a3131cc55947bd52"
+                "a83630f90c9255da"
             ]
         ]
     },
     {
-        "id": "a3131cc55947bd52",
+        "id": "a83630f90c9255da",
         "type": "ui_chart",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "chart",
         "group": "ed654e8fe89770c3",
         "order": 0,
@@ -384,9 +387,9 @@
         ]
     },
     {
-        "id": "e517d4082cd9fcd8",
+        "id": "45180df1dac09c1f",
         "type": "inject",
-        "z": "73b729f3a8b7a19f",
+        "z": "5e8f59c5b32b2f8a",
         "name": "reset_chart",
         "props": [
             {
@@ -408,7 +411,7 @@
         "y": 700,
         "wires": [
             [
-                "a3131cc55947bd52"
+                "a83630f90c9255da"
             ]
         ]
     },
