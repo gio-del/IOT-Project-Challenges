@@ -25,16 +25,15 @@ implementation {
     CONNECT_RETRIES = 3,
     SUBSCRIBE_RETRIES = 3
   };
-  MessageFormat msg;
 
+  MessageFormat msg; // Message buffer
 
   event void Boot.booted() {
     nodeID = 0; // this should be assigned by the coordinator?
 
-    subscribedTopic = TEMPERATURE;
+    subscribedTopic = TEMPERATURE; // this should be random
 
     sendConnectMsg();
-    call Timer0.startOneShot(TIMER_PERIOD_MILLI);
   }
 
   /* Connection Attempt */

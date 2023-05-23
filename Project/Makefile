@@ -1,4 +1,4 @@
-COMPONENT=TestPrintfAppC
+COMPONENT=LighPubSubAppC
 CFLAGS += -I$(TOSDIR)/lib/printf
 #CFLAGS += -DNEW_PRINTF_SEMANTICS
 

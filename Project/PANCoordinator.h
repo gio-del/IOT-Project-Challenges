@@ -3,8 +3,9 @@
 
 #include "PubSub.h"
 
-// Maximum number of connected client nodes
+// Maximum number of connected client nodes and published messages
 #define MAX_CLIENT_NODES 8
+#define MAX_PUBLISHED_MESSAGES 100
 
 // Structure to store information about connected client nodes
 typedef struct {
@@ -16,7 +17,7 @@ typedef struct {
 // Structure to store published messages
 typedef struct {
   bool isPublished;
-  uint8_t topic;
+  Topic topic;
   uint8_t payload;
 } PublishedMessage;
 

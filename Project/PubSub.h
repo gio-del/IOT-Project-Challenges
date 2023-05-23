@@ -15,15 +15,16 @@
 typedef nx_struct MessageFormat {
   nx_uint8_t messageType;
   nx_uint8_t nodeID;
-  nx_uint8_t topic;
-  nx_uint8_t payload[MAX_PAYLOAD_SIZE];
+  Topic topic;
+  nx_int16_t payload;
 } MessageFormat;
 
 // Topic enum
-enum {
+typedef enum {
   TEMPERATURE = 0,
   HUMIDITY = 1,
-  LUMINOSITY = 2
-};
+  LUMINOSITY = 2,
+  NO_TOPIC = 3
+} Topic;
 
 #endif // PUBSUB_H

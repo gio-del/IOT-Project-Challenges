@@ -13,15 +13,14 @@ module PANCoordinatorC {
 implementation {
 
   ClientNodeInfo clientNodes[MAX_CLIENT_NODES];
-  PublishedMessage publishedMessages[MAX_TOPICS];
+  PublishedMessage publishedMessages[MAX_PUBLISHED_MESSAGES];
 
   enum {
     TIMER_PERIOD_MILLI = 1000,
     CONNACK_RETRIES = 3
   };
 
-  MessageFormat msg;
-
+  MessageFormat msg; // Message buffer
 
   event void Boot.booted() {
     for (uint8_t i = 0; i < MAX_CLIENT_NODES; i++) {
@@ -30,13 +29,15 @@ implementation {
       clientNodes[i].subscribedTopic = NO_TOPIC;
     }
 
-    for (uint8_t i = 0; i < MAX_TOPICS; i++) {
+    for (uint8_t i = 0; i < MAX_PUBLISHED_MESSAGES; i++) {
       publishedMessages[i].isPublished = FALSE;
-      publishedMessages[i].topic = i;
+      publishedMessages[i].topic = NO_TOPIC;
       publishedMessages[i].payload = 0;
     }
   }
 
+  // TODO: check this, shouldn't be the coordinator to resend the CONNACK message.
+  /*Timer for sending CONNACK messages*/
   event void Timer0.fired() {
     for (uint8_t i = 0; i < MAX_CLIENT_NODES; i++) {
       if (clientNodes[i].isConnected && !clientNodes[i].nodeID) {
@@ -45,12 +46,14 @@ implementation {
     }
   }
 
+  /*Timer for publishing messages*/
   event void Timer1.fired() {
-    for (uint8_t i = 0; i < MAX_TOPICS; i++) {
+    for (uint8_t i = 0; i < MAX_PUBLISHED_MESSAGES; i++) {
       if (publishedMessages[i].isPublished) {
-        forwardPublishedMsg(i, publishedMessages[i].payload);
+        forwardPublishedMsg(publishedMessages[i]);
       }
     }
+    // TODO: should we clear the published messages?
   }
 
 
@@ -65,19 +68,18 @@ implementation {
     }
   }
 
-  void forwardPublishedMsg(uint8_t topic, uint8_t payload) {
+  void forwardPublishedMsg(PublishedMessage publishedMsg) {
     msg.messageType = PUBLISH_MSG;
-    msg.topic = topic;
-    msg.payload = payload;
+    msg.topic = publishedMsg.topic;
+    msg.payload = publishedMsg.payload;
 
     for (uint8_t i = 0; i < MAX_CLIENT_NODES; i++) {
-      if (clientNodes[i].isConnected && clientNodes[i].subscribedTopic == topic) {
-        AMSend.send(clientNodes[i].nodeID, &msg, sizeof(MessageFormat));
+      if (clientNodes[i].subscribedTopic == publishedMsg.topic) {
+        AMSend(i, &msg, sizeof(MessageFormat)); // TODO: check if this is correct, also for SUCCESS
       }
     }
   }
 
-  // Implementation-specific event handlers
   event void AMSend.sendDone(message_t* msg, error_t error) {
     // Handle send completion
     if (error == SUCCESS) {
@@ -92,23 +94,43 @@ implementation {
 
     switch (receivedMsg->messageType) {
       case CONNECT_MSG:
-        if (!clientNodes[receivedMsg->nodeID].isConnected) {
+        handleConnection();
+        break;
+
+      case SUBSCRIBE_MSG:
+        handleSubscribe();
+        break;
+
+      case PUBLISH_MSG:
+        handlePublish();
+        break;
+    }
+    return msg;
+  }
+
+  void handleConnection() {
+    if (!clientNodes[receivedMsg->nodeID].isConnected) {
 
           clientNodes[receivedMsg->nodeID].isConnected = TRUE;
           clientNodes[receivedMsg->nodeID].nodeID = receivedMsg->nodeID;
 
           sendConnackMsg(receivedMsg->nodeID);
         }
-        break;
+  }
 
-      case SUBSCRIBE_MSG:
-        clientNodes[receivedMsg->nodeID].subscribedTopic = receivedMsg->topic;
-        break;
+  void handleSubscribe() {
+    clientNodes[receivedMsg->nodeID].subscribedTopic = receivedMsg->topic;
+  }
 
-      case PUBLISH_MSG:
-        forwardPublishedMsg(receivedMsg->topic, receivedMsg->payload);
+  void handlePublish() {
+    for (uint8_t i = 0; i < MAX_PUBLISHED_MESSAGES; i++) {
+      if (!publishedMessages[i].isPublished) {
+        publishedMessages[i].isPublished = TRUE;
+        publishedMessages[i].topic = receivedMsg->topic;
+        publishedMessages[i].payload = receivedMsg->payload;
         break;
+      }
     }
-    return msg;
+    Timer1.startOneShot(TIMER_PERIOD_MILLI);
   }
 }
