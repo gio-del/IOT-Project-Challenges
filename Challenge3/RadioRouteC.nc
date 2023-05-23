@@ -5,16 +5,16 @@ module RadioRouteC @safe() {
   uses {
 
     /****** INTERFACES *****/
-	interface Boot;
+	  interface Boot;
 
-  interface AMControl;
-  interface Receive;
-  interface AMSend;
-  interface Packet;
-  interface Timer<TMilli> as Timer0;
-  interface Timer<TMilli> as Timer1;
-  interface Leds;
-  //other interfaces, if needed
+    interface SplitControl as AMControl;
+    interface Receive;
+    interface AMSend;
+ 	  interface Packet;
+ 	  interface Timer<TMilli> as Timer0;
+ 	  interface Timer<TMilli> as Timer1;
+ 	  interface Leds;
+ 	  //other interfaces, if needed
   }
 }
 implementation {
@@ -47,6 +47,11 @@ implementation {
   void initRoutingTable();
   void ledUpdate();
 
+  /*Routing Table Utility Functions*/
+  uint8_t getCost(uint16_t destination);
+  uint16_t getNextHop(uint16_t destination);
+  bool isDestinationReachable(uint16_t destination);
+
 
   bool generate_send (uint16_t address, message_t* packet, uint8_t type){
   /*
@@ -68,16 +73,16 @@ implementation {
   		route_req_sent = TRUE;
   		call Timer0.startOneShot( time_delays[TOS_NODE_ID-1] );
   		queued_packet = *packet;
-  		queue_addr = addres;
+  		queue_addr = address;
   	}else if (type == 2 && !route_rep_sent){
   	  route_rep_sent = TRUE;
   		call Timer0.startOneShot( time_delays[TOS_NODE_ID-1] );
   		queued_packet = *packet;
-  		queue_addr = addres;
+  		queue_addr = address;
   	}else if (type == 0){
   		call Timer0.startOneShot( time_delays[TOS_NODE_ID-1] );
   		queued_packet = *packet;
-  		queue_addr = addres;
+  		queue_addr = address;
   	}
   	}
   	return TRUE;
@@ -95,15 +100,21 @@ implementation {
 	/*
 	* Implement here the logic to perform the actual send of the packet using the tinyOS interfaces
 	*/
-    if(locked) return FALSE;
-    locked = TRUE;
-    dbg("send","Sending packet to %d\n", address);
-    radio_route_msg_t* rtm = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
-    if(rtm == NULL) return FALSE;
+    if(locked) {
+    	return FALSE;
+    }
+    else {
+    	radio_route_msg_t* rtm = (radio_route_msg_t*)call Packet.getPayload(packet, sizeof(radio_route_msg_t));
+   	 	locked = TRUE;
+   	 	dbg("send","Sending packet to %d\n", address);
+    	if(rtm == NULL) return FALSE;
 
-    rtm->Sender = TOS_NODE_ID;
-    rtm->Destination = address;
-    call AMSend.send(address, packet, sizeof(message_t));
+    	rtm->Sender = TOS_NODE_ID;
+    	rtm->Destination = address;
+    	call AMSend.send(address, packet, sizeof(message_t));
+    	locked = FALSE;
+    	return TRUE;
+    }
   }
 
 
@@ -114,15 +125,17 @@ implementation {
   }
 
   event void AMControl.startDone(error_t err) {
+  	locked=FALSE;
     initRoutingTable();
-    Timer1.startOneShot(FIRST_VALUE_TIMEOUT);
+    call Timer1.startOneShot(FIRST_VALUE_TIMEOUT);
   }
 
   void initRoutingTable() {
-    for(uint8_t i=0; i<MAX_NODES; i++) {
-      routing_table[i].node = i+1;
-      routing_table[i].next_hop = 0;
-      routing_table[i].cost = INFINITY;
+  	uint8_t i;
+  	for(i=0; i<MAX_NODES; i++) {
+      routing_table[i].Destination = i+1;
+      routing_table[i].NextHop = 0;
+      routing_table[i].Cost = INFINITY;
     }
   }
 
@@ -135,8 +148,8 @@ implementation {
 	* Implement here the logic to trigger the Node 1 to send the first REQ packet
 	*/
     if(TOS_NODE_ID == FIRST_SENDER) {
-      radio_route_msg_t* rtm = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
-      rtm->Type == DATA;
+      radio_route_msg_t* rtm = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      rtm->Type = DATA;
       rtm->Destination = FIRST_VALUE_DESTINATION;
       rtm->Sender = TOS_NODE_ID;
       rtm->Value = FIRST_VALUE;
@@ -153,13 +166,17 @@ implementation {
 	* Perform the packet send using the generate_send function if needed
 	* Implement the LED logic and print LED status on Debug
 	*/
-    if(len != sizeof(radio_route_msg_t)) return bufPtr;
-    radio_route_msg_t* rtm = (radio_route_msg_t*) payload;
-    ledUpdate();
-    switch(payload->Type) {
-      case DATA: handleData(rtm); return bufPtr;
-      case ROUTE_REQ: handleRouteReq(rtm); return bufPtr;
-      case ROUTE_REPLY: handleRouteReply(rtm); return bufPtr;
+    if(len != sizeof(radio_route_msg_t)) {
+    	return bufPtr;
+    } else {
+    	radio_route_msg_t* rtm = (radio_route_msg_t*) payload;
+    	ledUpdate();
+    	switch(rtm->Type) {
+      		case DATA: handleData(rtm); return bufPtr;
+      		case ROUTE_REQ: handleRouteReq(rtm); return bufPtr;
+      		case ROUTE_REPLY: handleRouteReply(rtm); return bufPtr;
+    	}
+    	return bufPtr;
     }
   }
 
@@ -167,11 +184,11 @@ implementation {
     uint8_t led = person_code[led_iter++] % 3;
     switch(led) {
       case 0:
-        Leds.led0Toggle();
+        call Leds.led0Toggle();
       case 1:
-        Leds.led1Toggle();
+        call Leds.led1Toggle();
       case 2:
-        Leds.led2Toggle();
+        call Leds.led2Toggle();
     }
     if(led_iter == 8) led_iter = 0; // at the end return to the first
   }
@@ -180,7 +197,7 @@ implementation {
     uint16_t destination = rtm->Destination;
     if (isDestinationReachable(destination)) {
       uint16_t nextHop = getNextHop(destination);
-      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
       rtm_tmp->Type = DATA;
       rtm_tmp->Destination = destination;
       rtm_tmp->Sender = TOS_NODE_ID;
@@ -188,7 +205,7 @@ implementation {
       generate_send(nextHop, &packet, DATA);
     }
     else {
-      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
       rtm_tmp->Type = ROUTE_REQ;
       rtm_tmp->NodeRequested = destination;
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REQ);
@@ -202,20 +219,20 @@ implementation {
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REQ);
     }
     else if(nodeRequested == TOS_NODE_ID) {
-      radio_route_msg_t* rtm = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
-      rtm->Type = ROUTE_REPLY;
-      rtm->Cost = 1;
-      rtm->NodeRequested = TOS_NODE_ID;
-      rtm->Sender = TOS_NODE_ID;
+      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      rtm_tmp->Type = ROUTE_REPLY;
+      rtm_tmp->Cost = 1;
+      rtm_tmp->NodeRequested = TOS_NODE_ID;
+      rtm_tmp->Sender = TOS_NODE_ID;
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
     }
-    else if(isDestinationReachable(nodeRequested))) {
+    else if(isDestinationReachable(nodeRequested)) {
       // send route request
-      radio_route_msg_t* rtm = (radio_route_msg_t*) Packet.getPayload(&packet, sizeof(radio_route_msg_t));
-      rtm->Type = ROUTE_REPLY;
-      rtm->Cost = getCost(nodeRequested) + 1;
-      rtm->NodeRequested = nodeRequested;
-      rtm->Sender = TOS_NODE_ID;
+      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      rtm_tmp->Type = ROUTE_REPLY;
+      rtm_tmp->Cost = getCost(nodeRequested) + 1;
+      rtm_tmp->NodeRequested = nodeRequested;
+      rtm_tmp->Sender = TOS_NODE_ID;
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
     }
 
@@ -238,7 +255,8 @@ implementation {
   }
 
   uint8_t getCost(uint16_t destination) {
-    for(uint8_t i=0; i<MAX_NODES; i++) {
+  	uint8_t i;
+    for(i=0; i<MAX_NODES; i++) {
       if(routing_table[i].Destination == destination) {
         return routing_table[i].Cost;
       }
@@ -250,7 +268,8 @@ implementation {
   }
 
   uint16_t getNextHop(uint16_t destination) {
-    for(uint8_t i=0; i<MAX_NODES; i++) {
+  	uint8_t i;
+    for(i=0; i<MAX_NODES; i++) {
       if(routing_table[i].Destination == destination) {
         return routing_table[i].NextHop;
       }

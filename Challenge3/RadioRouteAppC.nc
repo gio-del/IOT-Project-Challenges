@@ -6,11 +6,11 @@ implementation {
   components MainC, RadioRouteC as App;
 
   components ActiveMessageC;
-  compontents new AMReceiverC(AM_RADIO_COUNT_MSG);
-  compontents new AMSenderC(AM_RADIO_COUNT_MSG);
-  compontents new TimerMilliC() as Timer0;
-  compontents new TimerMilliC() as Timer1;
-  compontents Leds;
+  components new AMReceiverC(AM_RADIO_COUNT_MSG);
+  components new AMSenderC(AM_RADIO_COUNT_MSG);
+  components new TimerMilliC() as Timer0;
+  components new TimerMilliC() as Timer1;
+  components LedsC;
 
   /****** INTERFACES *****/
   //Boot interface
@@ -24,7 +24,5 @@ implementation {
   App.Packet -> AMSenderC;
   App.Timer0 -> Timer0;
   App.Timer1 -> Timer1;
-  App.Leds -> Leds;
+  App.Leds -> LedsC;
 }
-
-

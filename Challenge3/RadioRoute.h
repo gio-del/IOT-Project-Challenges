@@ -11,7 +11,7 @@
 
 enum {
 	DATA, ROUTE_REQ, ROUTE_REPLY
-}
+};
 
 typedef nx_struct radio_route_msg {
 	nx_uint8_t Type;
@@ -27,17 +27,12 @@ enum {
   AM_RADIO_COUNT_MSG = 10,
 };
 
-typdef nx_struct routing_table_entry {
+typedef nx_struct routing_table_entry {
 	nx_uint16_t Destination;
 	nx_uint16_t NextHop;
 	nx_uint8_t Cost;
 } routing_table_entry_t;
 
-typedef	table[MAX_NODES] routing_table_t;
-
-/*Routing Table Utility Functions*/
-uint8_t getCost(uint16_t destination);
-uint16_t getNextHop(uint16_t destination);
-bool isDestinationReachable(uint16_t destination);
+typedef	routing_table_entry_t routing_table_t[MAX_NODES];
 
 #endif
