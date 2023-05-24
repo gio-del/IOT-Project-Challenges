@@ -46,7 +46,7 @@ implementation {
   void handleRouteReply(radio_route_msg_t* rtm);
   void initRoutingTable();
   void ledUpdate();
-
+  
   /*Routing Table Utility Functions*/
   uint8_t getCost(uint16_t destination);
   uint16_t getNextHop(uint16_t destination);
@@ -106,12 +106,20 @@ implementation {
     else {
     	radio_route_msg_t* rtm = (radio_route_msg_t*)call Packet.getPayload(packet, sizeof(radio_route_msg_t));
    	 	locked = TRUE;
-   	 	dbg("send","Sending packet to %d\n", address);
     	if(rtm == NULL) return FALSE;
 
     	rtm->Sender = TOS_NODE_ID;
     	rtm->Destination = address;
-    	call AMSend.send(address, packet, sizeof(message_t));
+    	if (call AMSend.send(address, packet, sizeof(radio_route_msg_t)) == SUCCESS) {
+        	dbg("actual_send", "Packet passed to lower layer successfully!\n");
+
+	     	dbg("actual_send",">>>Packet\n \t Payload length %hhu \n", call Packet.payloadLength(packet));
+	     	dbg_clear("actual_send","\t Destination Address: %hu\n", address);
+
+	     	dbg_clear("actual_send","\t Payload Sent\n" );
+
+		 	dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
+    	}
     	locked = FALSE;
     	return TRUE;
     }
@@ -125,11 +133,16 @@ implementation {
   }
 
   event void AMControl.startDone(error_t err) {
-  	locked=FALSE;
-    initRoutingTable();
-    call Timer1.startOneShot(FIRST_VALUE_TIMEOUT);
+  	if(err == SUCCESS) {
+  		dbg("start_done","Node %hu ActiveMessageControl Started!\n",TOS_NODE_ID);
+  		locked=FALSE;
+    	initRoutingTable();
+    	call Timer1.startOneShot(FIRST_VALUE_TIMEOUT);
+    } else {
+    	call AMControl.start(); // retry
+    }
   }
-
+  
   void initRoutingTable() {
   	uint8_t i;
   	for(i=0; i<MAX_NODES; i++) {
@@ -149,6 +162,7 @@ implementation {
 	*/
     if(TOS_NODE_ID == FIRST_SENDER) {
       radio_route_msg_t* rtm = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg("t1_fired","Simulation Started\n");
       rtm->Type = DATA;
       rtm->Destination = FIRST_VALUE_DESTINATION;
       rtm->Sender = TOS_NODE_ID;
@@ -166,6 +180,8 @@ implementation {
 	* Perform the packet send using the generate_send function if needed
 	* Implement the LED logic and print LED status on Debug
 	*/
+	dbg("receive","Message Received\n");
+	dbg_clear("receive","\t Payload Length: %hhu\n",call Packet.payloadLength(bufPtr));
     if(len != sizeof(radio_route_msg_t)) {
     	return bufPtr;
     } else {
@@ -191,21 +207,26 @@ implementation {
         call Leds.led2Toggle();
     }
     if(led_iter == 8) led_iter = 0; // at the end return to the first
+    if(TOS_NODE_ID == 6) dbg("led_update","Led Update: %hhu%hhu%hhu\n", call Leds.get() & LEDS_LED0, call Leds.get() & LEDS_LED1, call Leds.get() & LEDS_LED2);
   }
 
   void handleData(radio_route_msg_t* rtm) {
     uint16_t destination = rtm->Destination;
+    dbg("handle_data","Handling Data\n");
     if (isDestinationReachable(destination)) {
       uint16_t nextHop = getNextHop(destination);
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg_clear("handle_data","\tHandling Data: Route Found\n");
       rtm_tmp->Type = DATA;
       rtm_tmp->Destination = destination;
       rtm_tmp->Sender = TOS_NODE_ID;
       rtm_tmp->Value = rtm->Value;
+      dbg_clear("handle_data","\t\tHandling Data: Type=%hhu Dest=%hu Sender=%hu Value=%hu NextHop=%hu\n", rtm_tmp->Type, rtm_tmp->Destination, rtm_tmp->Sender, rtm_tmp->Value, nextHop);
       generate_send(nextHop, &packet, DATA);
     }
     else {
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg_clear("handle_data","\tHandling Data: Route Not Found -> Broadcasting Route Request\n");
       rtm_tmp->Type = ROUTE_REQ;
       rtm_tmp->NodeRequested = destination;
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REQ);
@@ -214,12 +235,18 @@ implementation {
 
   void handleRouteReq(radio_route_msg_t* rtm) {
     uint16_t nodeRequested = rtm->NodeRequested;
+    dbg("handle_route_req","Handling Route Request\n");
+    dbg_clear("handle_route_req","\tNode Requested: %hu \n", nodeRequested);
     if(nodeRequested != TOS_NODE_ID && !isDestinationReachable(nodeRequested)) {
-      // Broadcast the route request
+      radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg_clear("handle_route_req","\tHandling Route Request: Route Not Found -> Broadcasting Route Request\n");
+      rtm_tmp->Type = rtm->Type;
+      rtm_tmp->NodeRequested = rtm->NodeRequested;
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REQ);
     }
     else if(nodeRequested == TOS_NODE_ID) {
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg_clear("handle_route_req","\tI'm the requested node\n");
       rtm_tmp->Type = ROUTE_REPLY;
       rtm_tmp->Cost = 1;
       rtm_tmp->NodeRequested = TOS_NODE_ID;
@@ -227,8 +254,8 @@ implementation {
       generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
     }
     else if(isDestinationReachable(nodeRequested)) {
-      // send route request
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+      dbg_clear("handle_route_req","\tRoute to the requested node found\n");
       rtm_tmp->Type = ROUTE_REPLY;
       rtm_tmp->Cost = getCost(nodeRequested) + 1;
       rtm_tmp->NodeRequested = nodeRequested;
@@ -240,11 +267,25 @@ implementation {
 
   void handleRouteReply(radio_route_msg_t* rtm) {
     uint16_t nodeRequested = rtm->NodeRequested;
+    dbg("handle_route_reply","Handling Route Reply\n");
+
     if(nodeRequested != TOS_NODE_ID && rtm->Cost < getCost(nodeRequested)) { // if the nodeRequested is unreachable, the cost is INFINITY
-        routing_table[nodeRequested-1].Cost = rtm->Cost + 1;
+    	radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
+    	rtm_tmp->Type = rtm->Type;
+    	rtm_tmp->Sender = rtm->Sender;
+    	rtm_tmp->NodeRequested = rtm->NodeRequested;
+    	rtm_tmp->Cost = rtm_tmp->Cost+1;
+        routing_table[nodeRequested-1].Cost = rtm->Cost;
         routing_table[nodeRequested-1].NextHop = rtm->Sender;
-        generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
-        if(TOS_NODE_ID == FIRST_SENDER && !data_sent) handleData(&data_msg);
+        dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
+        if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
+        	data_sent = TRUE;
+        	dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
+        	handleData(&data_msg);
+    	}
+        else {
+        	generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
+        }
     }
   }
 
@@ -252,6 +293,19 @@ implementation {
 	/* This event is triggered when a message is sent
 	*  Check if the packet is sent
 	*/
+	if (&packet == bufPtr && error == SUCCESS) {
+
+      dbg("actual_send", "Packet sent...\n");
+
+      dbg_clear("actual_send", " at time %s \n", sim_time_string());
+
+    }
+
+    else{
+
+      dbgerror("actual_send", "Send done error!\n");
+
+    }
   }
 
   uint8_t getCost(uint16_t destination) {

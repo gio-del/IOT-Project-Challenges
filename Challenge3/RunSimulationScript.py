@@ -49,41 +49,44 @@ print("Activate debug message on channel boot")
 
 t.addChannel("boot", out)
 
-print("Activate debug message on channel temp")
+print("Activate debug message on channel actual_send")
 
-t.addChannel("temp", out)
+t.addChannel("actual_send", out)
 
-print("Activate debug message on channel hum")
+print("Activate debug message on channel start_done")
 
-t.addChannel("hum", out)
+t.addChannel("start_done", out)
 
-print("Activate debug message on channel timer")
+print("Activate debug message on channel t1_fired")
 
-t.addChannel("timer", out)
+t.addChannel("t1_fired", out)
 
-print("Activate debug message on channel radio")
+print("Activate debug message on channel receive")
 
-t.addChannel("radio", out)
+t.addChannel("receive", out)
 
-print("Activate debug message on channel radio_pack")
+print("Activate debug message on channel led_update")
 
-t.addChannel("radio_pack", out)
+t.addChannel("led_update", out)
 
-print("Activate debug message on channel radio_send")
+print("Activate debug message on channel handle_data")
 
-t.addChannel("radio_send", out)
+t.addChannel("handle_data", out)
 
-print("Activate debug message on channel radio_rec")
+print("Activate debug message on channel handle_route_req")
 
-t.addChannel("radio_rec", out)
+t.addChannel("handle_route_req", out)
 
+print("Activate debug message on channel handle_route_reply")
+
+t.addChannel("handle_route_reply", out)
 
 # Create nodes
 
 
 # Create node 1
 
-print("Creating node 1 (master)")
+print("Creating node 1")
 
 node0 = t.getNode(1)
 
@@ -91,7 +94,7 @@ time0 = 0*t.ticksPerSecond()
 
 node0.bootAtTime(time0)
 
-print(">>>Node 9 boots at time",  time0/t.ticksPerSecond(), "[sec]")
+print(">>>Node 1 boots at time",  time0/t.ticksPerSecond(), "[sec]")
 
 
 # Create node 2
@@ -104,7 +107,7 @@ time1 = 0*t.ticksPerSecond()
 
 node1.bootAtTime(time1)
 
-print(">>>Node 1 boots at time",  time1/t.ticksPerSecond(), "[sec]")
+print(">>>Node 2 boots at time",  time1/t.ticksPerSecond(), "[sec]")
 
 
 # Create node 3
@@ -113,11 +116,59 @@ print("Creating node 3")
 
 node2 = t.getNode(3)
 
-time2 = 5*t.ticksPerSecond()
+time2 = 0*t.ticksPerSecond()
 
 node2.bootAtTime(time2)
 
-print(">>>Node 2 boots at time",  time2/t.ticksPerSecond(), "[sec]")
+print(">>>Node 3 boots at time",  time2/t.ticksPerSecond(), "[sec]")
+
+# Create node 4
+
+print("Creating node 4")
+
+node3 = t.getNode(4)
+
+time3 = 0*t.ticksPerSecond()
+
+node3.bootAtTime(time3)
+
+print(">>>Node 4 boots at time",  time3/t.ticksPerSecond(), "[sec]")
+
+# Create node 5
+
+print("Creating node 5")
+
+node4 = t.getNode(5)
+
+time4 = 0*t.ticksPerSecond()
+
+node4.bootAtTime(time4)
+
+print(">>>Node 5 boots at time",  time4/t.ticksPerSecond(), "[sec]")
+
+# Create node 6
+
+print("Creating node 6")
+
+node5 = t.getNode(6)
+
+time5 = 0*t.ticksPerSecond()
+
+node5.bootAtTime(time5)
+
+print(">>>Node 6 boots at time",  time5/t.ticksPerSecond(), "[sec]")
+
+# Create node 7
+
+print("Creating node 7")
+
+node6 = t.getNode(7)
+
+time6 = 0*t.ticksPerSecond()
+
+node6.bootAtTime(time6)
+
+print(">>>Node 7 boots at time",  time6/t.ticksPerSecond(), "[sec]")
 
 
 print("Creating radio channels...")
@@ -175,14 +226,14 @@ for line in lines:
 
             sys.stdout.flush()
 
-        for i in range(1, 4):
+        for i in range(1, 8):
 
             t.getNode(i).addNoiseTraceReading(val)
 
 print("Done!")
 
 
-for i in range(1, 4):
+for i in range(1, 8):
 
     print(">>>Creating noise model for node:", i)
 
