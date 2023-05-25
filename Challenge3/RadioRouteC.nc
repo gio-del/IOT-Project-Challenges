@@ -6,7 +6,7 @@ module RadioRouteC @safe() {
 
     /****** INTERFACES *****/
 	interface Boot;
-
+	
   	interface SplitControl as AMControl;
   	interface Receive;
   	interface AMSend;
@@ -105,17 +105,15 @@ implementation {
     }
     else {
     	radio_route_msg_t* rtm = (radio_route_msg_t*)call Packet.getPayload(packet, sizeof(radio_route_msg_t));
-   	 	locked = TRUE;
     	if(rtm == NULL) return FALSE;
-
     	if (call AMSend.send(address, packet, sizeof(radio_route_msg_t)) == SUCCESS) {
-        	dbg("actual_send", "Packet passed to lower layer successfully!\n");
+    		locked = TRUE;
+        dbg("actual_send", "Packet passed to lower layer successfully!\n");
 	     	dbg("actual_send",">>>Packet\n \t Payload length %hhu \n", call Packet.payloadLength(packet));
 	     	dbg_clear("actual_send","\t Destination Address: %hu\n", address);
-		 	dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
-		 	dbg_clear("actual_send","\t Payload Sent\n" );
+		 	  dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
+		 	  dbg_clear("actual_send","\t Payload Sent\n" );
     	}
-    	locked = FALSE;
     	return TRUE;
     }
   }
@@ -277,18 +275,18 @@ implementation {
     	rtm_tmp->Cost = rtm_tmp->Cost+1;
 
     	/* Update Routing Table */
-        routing_table[nodeRequested-1].Cost = rtm->Cost;
-        routing_table[nodeRequested-1].NextHop = rtm->Sender;
+      routing_table[nodeRequested-1].Cost = rtm->Cost;
+      routing_table[nodeRequested-1].NextHop = rtm->Sender;
 
-        if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
-        	data_sent = TRUE;
-        	dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
-        	handleData(&data_msg);
+      if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
+        data_sent = TRUE;
+        dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
+        handleData(&data_msg);
     	}
-        else {
-        	dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
-        	generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
-        }
+      else {
+        dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
+        generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
+      }
     }
   }
 
@@ -296,11 +294,12 @@ implementation {
 	/* This event is triggered when a message is sent
 	*  Check if the packet is sent
 	*/
-	if (&packet == bufPtr && error == SUCCESS) {
+	  if (&queued_packet == bufPtr && error == SUCCESS) {
+	    locked = FALSE;
       dbg("actual_send", "Packet sent...\n");
       dbg_clear("actual_send", " at time %s \n", sim_time_string());
     }
-    else{
+    else {
       dbgerror("actual_send", "Send done error!\n");
     }
   }
