@@ -171,6 +171,8 @@ node6.bootAtTime(time6)
 print(">>>Node 7 boots at time",  time6/t.ticksPerSecond(), "[sec]")
 
 
+
+
 print("Creating radio channels...")
 
 f = open(topofile, "r")

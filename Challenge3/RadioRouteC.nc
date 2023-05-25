@@ -5,16 +5,16 @@ module RadioRouteC @safe() {
   uses {
 
     /****** INTERFACES *****/
-	  interface Boot;
+	interface Boot;
 
-    interface SplitControl as AMControl;
-    interface Receive;
-    interface AMSend;
- 	  interface Packet;
- 	  interface Timer<TMilli> as Timer0;
- 	  interface Timer<TMilli> as Timer1;
- 	  interface Leds;
- 	  //other interfaces, if needed
+  	interface SplitControl as AMControl;
+  	interface Receive;
+  	interface AMSend;
+ 	interface Packet;
+ 	interface Timer<TMilli> as Timer0;
+ 	interface Timer<TMilli> as Timer1;
+ 	interface Leds;
+ 	//other interfaces, if needed
   }
 }
 implementation {
@@ -46,7 +46,7 @@ implementation {
   void handleRouteReply(radio_route_msg_t* rtm);
   void initRoutingTable();
   void ledUpdate();
-  
+
   /*Routing Table Utility Functions*/
   uint8_t getCost(uint16_t destination);
   uint16_t getNextHop(uint16_t destination);
@@ -108,17 +108,12 @@ implementation {
    	 	locked = TRUE;
     	if(rtm == NULL) return FALSE;
 
-    	rtm->Sender = TOS_NODE_ID;
-    	rtm->Destination = address;
     	if (call AMSend.send(address, packet, sizeof(radio_route_msg_t)) == SUCCESS) {
         	dbg("actual_send", "Packet passed to lower layer successfully!\n");
-
 	     	dbg("actual_send",">>>Packet\n \t Payload length %hhu \n", call Packet.payloadLength(packet));
 	     	dbg_clear("actual_send","\t Destination Address: %hu\n", address);
-
-	     	dbg_clear("actual_send","\t Payload Sent\n" );
-
 		 	dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
+		 	dbg_clear("actual_send","\t Payload Sent\n" );
     	}
     	locked = FALSE;
     	return TRUE;
@@ -142,7 +137,7 @@ implementation {
     	call AMControl.start(); // retry
     }
   }
-  
+
   void initRoutingTable() {
   	uint8_t i;
   	for(i=0; i<MAX_NODES; i++) {
@@ -167,7 +162,7 @@ implementation {
       rtm->Destination = FIRST_VALUE_DESTINATION;
       rtm->Sender = TOS_NODE_ID;
       rtm->Value = FIRST_VALUE;
-      data_msg = *rtm; // TODO: if something broke it's probably this line
+      data_msg = *rtm;
       handleData(rtm);
     }
   }
@@ -188,9 +183,9 @@ implementation {
     	radio_route_msg_t* rtm = (radio_route_msg_t*) payload;
     	ledUpdate();
     	switch(rtm->Type) {
-      		case DATA: handleData(rtm); return bufPtr;
-      		case ROUTE_REQ: handleRouteReq(rtm); return bufPtr;
-      		case ROUTE_REPLY: handleRouteReply(rtm); return bufPtr;
+      		case DATA: handleData(rtm); break;
+      		case ROUTE_REQ: handleRouteReq(rtm); break;
+      		case ROUTE_REPLY: handleRouteReply(rtm); break;
     	}
     	return bufPtr;
     }
@@ -200,11 +195,11 @@ implementation {
     uint8_t led = person_code[led_iter++] % 3;
     switch(led) {
       case 0:
-        call Leds.led0Toggle();
+        call Leds.led0Toggle(); break;
       case 1:
-        call Leds.led1Toggle();
+        call Leds.led1Toggle(); break;
       case 2:
-        call Leds.led2Toggle();
+        call Leds.led2Toggle(); break;
     }
     if(led_iter == 8) led_iter = 0; // at the end return to the first
     if(TOS_NODE_ID == 6) dbg("led_update","Led Update: %hhu%hhu%hhu\n", call Leds.get() & LEDS_LED0, call Leds.get() & LEDS_LED1, call Leds.get() & LEDS_LED2);
@@ -213,16 +208,21 @@ implementation {
   void handleData(radio_route_msg_t* rtm) {
     uint16_t destination = rtm->Destination;
     dbg("handle_data","Handling Data\n");
+    dbg_clear("handle_data","\tDestination Address: %hu\n",rtm->Destination);
+    dbg_clear("handle_data","\tSender Address: %hu\n",rtm->Sender);
+    dbg_clear("handle_data","\tValue: %hu\n",rtm->Value);
     if (isDestinationReachable(destination)) {
       uint16_t nextHop = getNextHop(destination);
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
       dbg_clear("handle_data","\tHandling Data: Route Found\n");
+      dbg_clear("handle_data","\tNext Hop: %hu\n", nextHop);
       rtm_tmp->Type = DATA;
       rtm_tmp->Destination = destination;
       rtm_tmp->Sender = TOS_NODE_ID;
       rtm_tmp->Value = rtm->Value;
-      dbg_clear("handle_data","\t\tHandling Data: Type=%hhu Dest=%hu Sender=%hu Value=%hu NextHop=%hu\n", rtm_tmp->Type, rtm_tmp->Destination, rtm_tmp->Sender, rtm_tmp->Value, nextHop);
       generate_send(nextHop, &packet, DATA);
+    } else if(TOS_NODE_ID == 7) {
+      dbg_clear("handle_data","\tNode 7 got the packet from Node 1\n");
     }
     else {
       radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
@@ -272,18 +272,21 @@ implementation {
     if(nodeRequested != TOS_NODE_ID && rtm->Cost < getCost(nodeRequested)) { // if the nodeRequested is unreachable, the cost is INFINITY
     	radio_route_msg_t* rtm_tmp = (radio_route_msg_t*)call Packet.getPayload(&packet, sizeof(radio_route_msg_t));
     	rtm_tmp->Type = rtm->Type;
-    	rtm_tmp->Sender = rtm->Sender;
+    	rtm_tmp->Sender = TOS_NODE_ID;
     	rtm_tmp->NodeRequested = rtm->NodeRequested;
     	rtm_tmp->Cost = rtm_tmp->Cost+1;
+
+    	/* Update Routing Table */
         routing_table[nodeRequested-1].Cost = rtm->Cost;
         routing_table[nodeRequested-1].NextHop = rtm->Sender;
-        dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
+
         if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
         	data_sent = TRUE;
         	dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
         	handleData(&data_msg);
     	}
         else {
+        	dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
         	generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
         }
     }
@@ -294,17 +297,11 @@ implementation {
 	*  Check if the packet is sent
 	*/
 	if (&packet == bufPtr && error == SUCCESS) {
-
       dbg("actual_send", "Packet sent...\n");
-
       dbg_clear("actual_send", " at time %s \n", sim_time_string());
-
     }
-
     else{
-
       dbgerror("actual_send", "Send done error!\n");
-
     }
   }
 
