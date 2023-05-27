@@ -161,7 +161,7 @@ implementation {
       rtm->Sender = TOS_NODE_ID;
       rtm->Value = FIRST_VALUE;
       data_msg = *rtm;
-      handleData(rtm);
+      handleData(rtm); // will try to send the data, this will result in a ROUTE_REQ being broadcasted
     }
   }
 
@@ -200,7 +200,7 @@ implementation {
         call Leds.led2Toggle(); break;
     }
     if(led_iter == 8) led_iter = 0; // at the end return to the first
-    if(TOS_NODE_ID == 6) dbg("led_update","Led Update: %hhu%hhu%hhu\n", call Leds.get() & LEDS_LED0, call Leds.get() & LEDS_LED1, call Leds.get() & LEDS_LED2);
+    if(TOS_NODE_ID == 6) dbg("led_update","Led Update: %hhu%hhu%hhu\n", (call Leds.get() & LEDS_LED0) == 1, (call Leds.get() & LEDS_LED1) == 2, (call Leds.get() & LEDS_LED2) == 4);
   }
 
   void handleData(radio_route_msg_t* rtm) {
@@ -275,18 +275,18 @@ implementation {
     	rtm_tmp->Cost = rtm_tmp->Cost+1;
 
     	/* Update Routing Table */
-      routing_table[nodeRequested-1].Cost = rtm->Cost;
-      routing_table[nodeRequested-1].NextHop = rtm->Sender;
+        routing_table[nodeRequested-1].Cost = rtm->Cost;
+        routing_table[nodeRequested-1].NextHop = rtm->Sender;
 
-      if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
-        data_sent = TRUE;
-        dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
-        handleData(&data_msg);
+        if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
+        	data_sent = TRUE;
+        	dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
+        	handleData(&data_msg);
     	}
-      else {
-        dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
-        generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
-      }
+        else {
+        	dbg("handle_route_reply","Routing Table Updated: Broadcasting Route Reply\n");
+        	generate_send(AM_BROADCAST_ADDR, &packet, ROUTE_REPLY);
+        }
     }
   }
 
@@ -294,12 +294,12 @@ implementation {
 	/* This event is triggered when a message is sent
 	*  Check if the packet is sent
 	*/
-	  if (&queued_packet == bufPtr && error == SUCCESS) {
-	    locked = FALSE;
+	if (&queued_packet == bufPtr && error == SUCCESS) {
+	  locked = FALSE;
       dbg("actual_send", "Packet sent...\n");
       dbg_clear("actual_send", " at time %s \n", sim_time_string());
     }
-    else {
+    else{
       dbgerror("actual_send", "Send done error!\n");
     }
   }
