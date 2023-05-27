@@ -6,10 +6,10 @@ module RadioRouteC @safe() {
 
     /****** INTERFACES *****/
 	interface Boot;
-	
-  	interface SplitControl as AMControl;
-  	interface Receive;
-  	interface AMSend;
+
+  interface SplitControl as AMControl;
+  interface Receive;
+  interface AMSend;
  	interface Packet;
  	interface Timer<TMilli> as Timer0;
  	interface Timer<TMilli> as Timer1;
