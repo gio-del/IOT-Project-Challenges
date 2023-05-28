@@ -61,9 +61,13 @@ print("Activate debug message on channel t1_fired")
 
 t.addChannel("t1_fired", out)
 
-print("Activate debug message on channel receive")
+print("Activate debug message on channel t2_fired")
 
 t.addChannel("t2_fired", out)
+
+print("Activate debug message on channel t3_fired")
+
+t.addChannel("t3_fired", out)
 
 print("Activate debug message on channel receive")
 

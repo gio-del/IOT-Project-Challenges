@@ -14,8 +14,9 @@ module LightPubSubC @safe() {
  	interface Timer<TMilli> as Timer0;
  	interface Timer<TMilli> as Timer1;
     interface Timer<TMilli> as Timer2;
+    interface Timer<TMilli> as Timer3;
  	interface Leds;
- 	//other interfaces, if needed
+ 	interface Random;
   }
 }
 implementation {
@@ -31,20 +32,19 @@ implementation {
     bool subscribeAcked;
 
     /*PAN Coordinator Variables*/
-    
 	typedef struct message_list {
     	pub_sub_msg_t msg;
     	uint16_t destination;
     	struct message_list* next;
 	} message_list_t;
 
+    client_list_t client_list;
+    message_list_t* message_list = NULL;
+
 	/*Utility functions for the message list*/
 	void add_message(message_list_t** list, pub_sub_msg_t msg, uint16_t destination);
 	uint16_t pop_message(message_list_t** list, pub_sub_msg_t* message);
 	bool is_empty_message_list(message_list_t** list);
-
-    client_list_t client_list;
-    message_list_t* message_list = NULL;
 
     /*PROTOTYPES*/
     bool generate_send(uint16_t address, message_t* msg);
@@ -97,16 +97,46 @@ implementation {
             return;
         }
         if(connectAcked == TRUE) {
-            dbg("t2_fired", "Client is already connected, sending a subscription request\n");
-            // TODO: subscription to a random topic then handle subscription ack
+            dbg("t2_fired", "Node %hu is already connected, sending a subscription request\n", TOS_NODE_ID);
+            call Timer3.startOneShot(2000);
             return;
         } else {
         	pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg("t2_fired", "Client is not connected, sending a connection request\n");    
+        	dbg("t2_fired", "Node %hu is not connected, sending a connection request\n", TOS_NODE_ID);
         	msg->type = CONN;
         	msg->sender = TOS_NODE_ID;
         	generate_send(PAN_COORDINATOR_ID, &packet);
         	call Timer2.startOneShot(2000);
+        }
+    }
+
+    /*
+        * This timer is used to send a subscription request to the PAN Coordinator and handle retranmission
+    */
+    event void Timer3.fired() {
+        if(TOS_NODE_ID == PAN_COORDINATOR_ID) {
+            return;
+        }
+        if(subscribeAcked == TRUE) {
+            dbg("t3_fired", "Node %hu is already subscribed, waiting for messages\n", TOS_NODE_ID);
+            if(TOS_NODE_ID == 2) {
+                // Send a PUB message
+                pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
+                msg->type = PUB;
+                msg->sender = TOS_NODE_ID;
+                msg->topic = call Random.rand16() % 3; // 3 is the number of topics
+                msg->payload = call Random.rand16() % 100; // 100 is the maximum payload
+                generate_send(PAN_COORDINATOR_ID, &packet);
+            }
+            return;
+        } else {
+        	pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
+        	dbg("t3_fired", "Node %hu is not subscribed, sending a subscription request\n", TOS_NODE_ID);
+        	msg->type = SUB;
+        	msg->sender = TOS_NODE_ID;
+        	msg->topic = call Random.rand16() % 3; // 3 is the number of topics
+        	generate_send(PAN_COORDINATOR_ID, &packet);
+        	call Timer3.startOneShot(2000);
         }
     }
 
@@ -259,8 +289,7 @@ implementation {
             }
         }
     }
-    
-    
+
 	/*
    	 	* Adds a message to the list
    		 * The message is added to the end of the list
