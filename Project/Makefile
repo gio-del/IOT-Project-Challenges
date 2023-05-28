@@ -1,4 +1,4 @@
-COMPONENT=LighPubSubAppC
+COMPONENT=LightPubSubAppC
 CFLAGS += -I$(TOSDIR)/lib/printf
 #CFLAGS += -DNEW_PRINTF_SEMANTICS
 
