@@ -113,8 +113,9 @@ implementation {
 	     	dbg_clear("actual_send","\t Destination Address: %hu\n", address);
 		 	  dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
 		 	  dbg_clear("actual_send","\t Payload Sent\n" );
+        return TRUE;
     	}
-    	return TRUE;
+    	return FALSE;
     }
   }
 
@@ -294,12 +295,12 @@ implementation {
 	/* This event is triggered when a message is sent
 	*  Check if the packet is sent
 	*/
-	if (&queued_packet == bufPtr && error == SUCCESS) {
-	  locked = FALSE;
+	  if (&queued_packet == bufPtr && error == SUCCESS) {
+	    locked = FALSE;
       dbg("actual_send", "Packet sent...\n");
       dbg_clear("actual_send", " at time %s \n", sim_time_string());
     }
-    else{
+    else {
       dbgerror("actual_send", "Send done error!\n");
     }
   }

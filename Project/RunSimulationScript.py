@@ -63,30 +63,38 @@ t.addChannel("t1_fired", out)
 
 print("Activate debug message on channel receive")
 
+t.addChannel("t2_fired", out)
+
+print("Activate debug message on channel receive")
+
 t.addChannel("receive", out)
 
-print("Activate debug message on channel led_update")
+print("Activate debug message on channel handle_connect")
 
-t.addChannel("led_update", out)
+t.addChannel("handle_connect", out)
 
-print("Activate debug message on channel handle_data")
+print("Activate debug message on channel handle_connack")
 
-t.addChannel("handle_data", out)
+t.addChannel("handle_connack", out)
 
-print("Activate debug message on channel handle_route_req")
+print("Activate debug message on channel handle_subscribe")
 
-t.addChannel("handle_route_req", out)
+t.addChannel("handle_subscribe", out)
 
-print("Activate debug message on channel handle_route_reply")
+print("Activate debug message on channel handle_suback")
 
-t.addChannel("handle_route_reply", out)
+t.addChannel("handle_suback", out)
+
+print("Activate debug message on channel handle_publish")
+
+t.addChannel("handle_publish", out)
 
 # Create nodes
 
 
 # Create node 1
 
-print("Creating node 1")
+print("Creating the PAN Coordinator")
 
 node0 = t.getNode(1)
 
@@ -94,7 +102,7 @@ time0 = 0*t.ticksPerSecond()
 
 node0.bootAtTime(time0)
 
-print(">>>Node 1 boots at time",  time0/t.ticksPerSecond(), "[sec]")
+print(">>>PAN Coordinator boots at time",  time0/t.ticksPerSecond(), "[sec]")
 
 
 # Create node 2
@@ -170,6 +178,30 @@ node6.bootAtTime(time6)
 
 print(">>>Node 7 boots at time",  time6/t.ticksPerSecond(), "[sec]")
 
+# Create node 8
+
+print("Creating node 8")
+
+node7 = t.getNode(8)
+
+time7 = 0*t.ticksPerSecond()
+
+node7.bootAtTime(time7)
+
+print(">>>Node 8 boots at time",  time7/t.ticksPerSecond(), "[sec]")
+
+# Create node 9
+
+print("Creating node 9")
+
+node8 = t.getNode(9)
+
+time8 = 0*t.ticksPerSecond()
+
+node8.bootAtTime(time8)
+
+print(">>>Node 9 boots at time",  time8/t.ticksPerSecond(), "[sec]")
+
 
 
 
@@ -228,14 +260,14 @@ for line in lines:
 
             sys.stdout.flush()
 
-        for i in range(1, 8):
+        for i in range(1, 10):
 
             t.getNode(i).addNoiseTraceReading(val)
 
 print("Done!")
 
 
-for i in range(1, 8):
+for i in range(1, 10):
 
     print(">>>Creating noise model for node:", i)
 

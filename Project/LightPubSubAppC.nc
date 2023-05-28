@@ -10,6 +10,7 @@ implementation {
   components new AMSenderC(AM_RADIO_COUNT_MSG);
   components new TimerMilliC() as Timer0;
   components new TimerMilliC() as Timer1;
+  components new TimerMilliC() as Timer2;
   components LedsC;
 
   /****** INTERFACES *****/
@@ -24,5 +25,6 @@ implementation {
   App.Packet -> AMSenderC;
   App.Timer0 -> Timer0;
   App.Timer1 -> Timer1;
+  App.Timer2 -> Timer2;
   App.Leds -> LedsC;
 }
