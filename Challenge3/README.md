@@ -6,6 +6,10 @@
 
 ```python RunSimulationScript.py```
 
+## TOSSIM log
+
+```python RunSimulationScript.py > TOSSIM.log```
+
 ## Led Status
 
-```python RunSimulationScript.py | grep Led```
+```cat TOSSIM.log | grep Led```

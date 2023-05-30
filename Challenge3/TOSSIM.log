@@ -1,0 +1,374 @@
+********************************************
+*                                          *
+*             TOSSIM Script                *
+*                                          *
+********************************************
+Initializing mac....
+Initializing radio channels....
+('    using topology file:', 'topology.txt')
+('    using noise file:', 'meyer-heavy.txt')
+Initializing simulator....
+Activate debug message on channel boot
+Activate debug message on channel actual_send
+Activate debug message on channel start_done
+Activate debug message on channel t1_fired
+Activate debug message on channel receive
+Activate debug message on channel led_update
+Activate debug message on channel handle_data
+Activate debug message on channel handle_route_req
+Activate debug message on channel handle_route_reply
+Creating node 1
+('>>>Node 1 boots at time', 0L, '[sec]')
+Creating node 2
+('>>>Node 2 boots at time', 0L, '[sec]')
+Creating node 3
+('>>>Node 3 boots at time', 0L, '[sec]')
+Creating node 4
+('>>>Node 4 boots at time', 0L, '[sec]')
+Creating node 5
+('>>>Node 5 boots at time', 0L, '[sec]')
+Creating node 6
+('>>>Node 6 boots at time', 0L, '[sec]')
+Creating node 7
+('>>>Node 7 boots at time', 0L, '[sec]')
+Creating radio channels...
+('>>>Setting radio channel from node ', '1', ' to node ', '2', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '2', ' to node ', '1', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '1', ' to node ', '3', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '3', ' to node ', '1', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '2', ' to node ', '4', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '4', ' to node ', '2', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '4', ' to node ', '3', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '3', ' to node ', '4', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '3', ' to node ', '5', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '5', ' to node ', '3', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '5', ' to node ', '6', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '6', ' to node ', '5', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '4', ' to node ', '6', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '6', ' to node ', '4', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '7', ' to node ', '5', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '5', ' to node ', '7', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '6', ' to node ', '7', ' with gain ', '-60.0', ' dBm')
+('>>>Setting radio channel from node ', '7', ' to node ', '6', ' with gain ', '-60.0', ' dBm')
+Initializing Closest Pattern Matching (CPM)...
+('Reading noise model data file:', 'meyer-heavy.txt')
+Loading:
+##Done!
+('>>>Creating noise model for node:', 1)
+('>>>Creating noise model for node:', 2)
+('>>>Creating noise model for node:', 3)
+('>>>Creating noise model for node:', 4)
+('>>>Creating noise model for node:', 5)
+('>>>Creating noise model for node:', 6)
+('>>>Creating noise model for node:', 7)
+Start simulation with TOSSIM! 
+
+
+
+DEBUG (1): Application booted.
+DEBUG (7): Application booted.
+DEBUG (3): Application booted.
+DEBUG (6): Application booted.
+DEBUG (2): Application booted.
+DEBUG (5): Application booted.
+DEBUG (4): Application booted.
+DEBUG (7): Node 7 ActiveMessageControl Started!
+DEBUG (6): Node 6 ActiveMessageControl Started!
+DEBUG (1): Node 1 ActiveMessageControl Started!
+DEBUG (3): Node 3 ActiveMessageControl Started!
+DEBUG (4): Node 4 ActiveMessageControl Started!
+DEBUG (2): Node 2 ActiveMessageControl Started!
+DEBUG (5): Node 5 ActiveMessageControl Started!
+DEBUG (1): Simulation Started
+DEBUG (1): Handling Data
+	Destination Address: 7
+	Sender Address: 1
+	Value: 5
+	Handling Data: Route Not Found -> Broadcasting Route Request
+DEBUG (1): Packet passed to lower layer successfully!
+DEBUG (1): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (3): Message Received
+	 Payload Length: 10
+DEBUG (3): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (2): Message Received
+	 Payload Length: 10
+DEBUG (2): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (1): Packet sent...
+ at time 0:0:4.953033395 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (1): Message Received
+	 Payload Length: 10
+DEBUG (1): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (2): Packet sent...
+ at time 0:0:5.131530710 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (1): Message Received
+	 Payload Length: 10
+DEBUG (1): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (3): Packet sent...
+ at time 0:0:5.215164181 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (6): Message Received
+	 Payload Length: 10
+DEBUG (6): Led Update: 010
+DEBUG (6): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (3): Message Received
+	 Payload Length: 10
+DEBUG (3): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (2): Message Received
+	 Payload Length: 10
+DEBUG (2): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (4): Packet sent...
+ at time 0:0:5.499298069 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (7): Message Received
+	 Payload Length: 10
+DEBUG (7): Handling Route Request
+	Node Requested: 7 
+	I'm the requested node
+DEBUG (6): Message Received
+	 Payload Length: 10
+DEBUG (6): Led Update: 110
+DEBUG (6): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (5): Packet sent...
+ at time 0:0:5.685897818 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 1 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (7): Message Received
+	 Payload Length: 10
+DEBUG (7): Handling Route Request
+	Node Requested: 7 
+	I'm the requested node
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Route Request
+	Node Requested: 7 
+	Handling Route Request: Route Not Found -> Broadcasting Route Request
+DEBUG (6): Packet sent...
+ at time 0:0:6.075714078 
+DEBUG (7): Packet passed to lower layer successfully!
+DEBUG (7): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (6): Message Received
+	 Payload Length: 10
+DEBUG (6): Led Update: 100
+DEBUG (6): Handling Route Reply
+DEBUG (6): Routing Table Updated: Broadcasting Route Reply
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Route Reply
+DEBUG (5): Routing Table Updated: Broadcasting Route Reply
+DEBUG (7): Packet sent...
+ at time 0:0:6.365737882 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (7): Message Received
+	 Payload Length: 10
+DEBUG (7): Handling Route Reply
+DEBUG (6): Message Received
+	 Payload Length: 10
+DEBUG (6): Led Update: 000
+DEBUG (6): Handling Route Reply
+DEBUG (3): Message Received
+	 Payload Length: 10
+DEBUG (3): Handling Route Reply
+DEBUG (3): Routing Table Updated: Broadcasting Route Reply
+DEBUG (5): Packet sent...
+ at time 0:0:6.839218113 
+DEBUG (6): Packet passed to lower layer successfully!
+DEBUG (6): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (7): Message Received
+	 Payload Length: 10
+DEBUG (7): Handling Route Reply
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Reply
+DEBUG (4): Routing Table Updated: Broadcasting Route Reply
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Route Reply
+DEBUG (6): Packet sent...
+ at time 0:0:6.944869945 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Route Reply
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Reply
+DEBUG (1): Message Received
+	 Payload Length: 10
+DEBUG (1): Handling Route Reply
+DEBUG (1): Node 1 can now send the packet to destination 7
+DEBUG (1): Handling Data
+	Destination Address: 7
+	Sender Address: 1
+	Value: 5
+	Handling Data: Route Found
+	Next Hop: 3
+DEBUG (3): Packet sent...
+ at time 0:0:7.107437098 
+DEBUG (1): Packet passed to lower layer successfully!
+DEBUG (1): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 3
+	 Type: 0 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (3): Message Received
+	 Payload Length: 10
+DEBUG (3): Handling Data
+	Destination Address: 7
+	Sender Address: 1
+	Value: 5
+	Handling Data: Route Found
+	Next Hop: 5
+DEBUG (1): Packet sent...
+ at time 0:0:7.169280996 
+DEBUG (4): Packet passed to lower layer successfully!
+DEBUG (4): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (6): Message Received
+	 Payload Length: 10
+DEBUG (6): Led Update: 100
+DEBUG (6): Handling Route Reply
+DEBUG (3): Message Received
+	 Payload Length: 10
+DEBUG (3): Handling Route Reply
+DEBUG (2): Message Received
+	 Payload Length: 10
+DEBUG (2): Handling Route Reply
+DEBUG (2): Routing Table Updated: Broadcasting Route Reply
+DEBUG (4): Packet sent...
+ at time 0:0:7.312499975 
+DEBUG (3): Packet passed to lower layer successfully!
+DEBUG (3): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 5
+	 Type: 0 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (5): Message Received
+	 Payload Length: 10
+DEBUG (5): Handling Data
+	Destination Address: 7
+	Sender Address: 1
+	Value: 5
+	Handling Data: Route Found
+	Next Hop: 7
+DEBUG (3): Packet sent...
+ at time 0:0:7.438720660 
+DEBUG (2): Packet passed to lower layer successfully!
+DEBUG (2): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 65535
+	 Type: 2 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (4): Message Received
+	 Payload Length: 10
+DEBUG (4): Handling Route Reply
+DEBUG (1): Message Received
+	 Payload Length: 10
+DEBUG (1): Handling Route Reply
+DEBUG (2): Packet sent...
+ at time 0:0:7.488662681 
+DEBUG (5): Packet passed to lower layer successfully!
+DEBUG (5): >>>Packet
+ 	 Payload length 10 
+	 Destination Address: 7
+	 Type: 0 (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)
+	 Payload Sent
+DEBUG (7): Message Received
+	 Payload Length: 10
+DEBUG (7): Handling Data
+	Destination Address: 7
+	Sender Address: 1
+	Value: 5
+	Node 7 got the packet from Node 1
+DEBUG (5): Packet sent...
+ at time 0:0:7.915359453 
+
+
+
+Simulation finished!

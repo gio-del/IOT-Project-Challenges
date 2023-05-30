@@ -6,10 +6,10 @@ module RadioRouteC @safe() {
 
     /****** INTERFACES *****/
 	interface Boot;
-
-  interface SplitControl as AMControl;
-  interface Receive;
-  interface AMSend;
+	
+  	interface SplitControl as AMControl;
+  	interface Receive;
+  	interface AMSend;
  	interface Packet;
  	interface Timer<TMilli> as Timer0;
  	interface Timer<TMilli> as Timer1;
@@ -46,7 +46,7 @@ implementation {
   void handleRouteReply(radio_route_msg_t* rtm);
   void initRoutingTable();
   void ledUpdate();
-
+  
   /*Routing Table Utility Functions*/
   uint8_t getCost(uint16_t destination);
   uint16_t getNextHop(uint16_t destination);
@@ -108,14 +108,13 @@ implementation {
     	if(rtm == NULL) return FALSE;
     	if (call AMSend.send(address, packet, sizeof(radio_route_msg_t)) == SUCCESS) {
     		locked = TRUE;
-        dbg("actual_send", "Packet passed to lower layer successfully!\n");
+        	dbg("actual_send", "Packet passed to lower layer successfully!\n");
 	     	dbg("actual_send",">>>Packet\n \t Payload length %hhu \n", call Packet.payloadLength(packet));
 	     	dbg_clear("actual_send","\t Destination Address: %hu\n", address);
-		 	  dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
-		 	  dbg_clear("actual_send","\t Payload Sent\n" );
-        return TRUE;
+		 	dbg_clear("actual_send", "\t Type: %hhu (0 = DATA, 1 = ROUTE_REQ, 2 = ROUTE_REPLY)\n", rtm->Type);
+		 	dbg_clear("actual_send","\t Payload Sent\n" );
     	}
-    	return FALSE;
+    	return TRUE;
     }
   }
 
@@ -136,7 +135,7 @@ implementation {
     	call AMControl.start(); // retry
     }
   }
-
+  
   void initRoutingTable() {
   	uint8_t i;
   	for(i=0; i<MAX_NODES; i++) {
@@ -217,7 +216,7 @@ implementation {
       dbg_clear("handle_data","\tNext Hop: %hu\n", nextHop);
       rtm_tmp->Type = DATA;
       rtm_tmp->Destination = destination;
-      rtm_tmp->Sender = TOS_NODE_ID;
+      rtm_tmp->Sender = rtm->Sender;
       rtm_tmp->Value = rtm->Value;
       generate_send(nextHop, &packet, DATA);
     } else if(TOS_NODE_ID == 7) {
@@ -274,11 +273,11 @@ implementation {
     	rtm_tmp->Sender = TOS_NODE_ID;
     	rtm_tmp->NodeRequested = rtm->NodeRequested;
     	rtm_tmp->Cost = rtm_tmp->Cost+1;
-
+    	
     	/* Update Routing Table */
         routing_table[nodeRequested-1].Cost = rtm->Cost;
         routing_table[nodeRequested-1].NextHop = rtm->Sender;
-
+        
         if(TOS_NODE_ID == FIRST_SENDER && !data_sent) { // Node 1 got its route to destination 7!
         	data_sent = TRUE;
         	dbg("handle_route_reply","Node 1 can now send the packet to destination 7\n");
@@ -295,12 +294,12 @@ implementation {
 	/* This event is triggered when a message is sent
 	*  Check if the packet is sent
 	*/
-	  if (&queued_packet == bufPtr && error == SUCCESS) {
-	    locked = FALSE;
+	if (&queued_packet == bufPtr && error == SUCCESS) {
+	  locked = FALSE;
       dbg("actual_send", "Packet sent...\n");
       dbg_clear("actual_send", " at time %s \n", sim_time_string());
     }
-    else {
+    else{
       dbgerror("actual_send", "Send done error!\n");
     }
   }
