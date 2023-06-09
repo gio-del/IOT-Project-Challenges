@@ -1,5 +1,6 @@
 #include "Timer.h"
 #include "LightPubSub.h"
+#include "printf.h"
 
 module LightPubSubC @safe() {
   uses {
@@ -78,14 +79,16 @@ implementation {
     */
     event void Timer1.fired() {
         if(is_empty_message_list(&message_list) == TRUE) {
+        	call Timer1.startOneShot(MESSAGE_DELAY);
             return;
         } else {
         	pub_sub_msg_t msg;
         	uint16_t destination = pop_message(&message_list, &msg);
         	pub_sub_msg_t* payload = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg("t1_fired", "PAN Coordinator has a message to send\n");
+        	printf("PAN Coordinator has a message to send\n");
         	*payload = msg;
         	generate_send(destination, &packet);
+        	call Timer1.startOneShot(3*MESSAGE_DELAY); // if there is a message to send wait longer to send the next one
         }
     }
 
@@ -97,16 +100,16 @@ implementation {
             return;
         }
         if(connectAcked == TRUE) {
-            dbg("t2_fired", "Node %hu is already connected, sending a subscription request\n", TOS_NODE_ID);
-            call Timer3.startOneShot(2000);
+            printf("Node %d is already connected, sending a subscription request\n", TOS_NODE_ID);
+            call Timer3.startOneShot(NODE_DELAY);
             return;
         } else {
         	pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg("t2_fired", "Node %hu is not connected, sending a connection request\n", TOS_NODE_ID);
+        	printf("Node %d is not connected, sending a connection request\n", TOS_NODE_ID);
         	msg->type = CONN;
         	msg->sender = TOS_NODE_ID;
         	generate_send(PAN_COORDINATOR_ID, &packet);
-        	call Timer2.startOneShot(2000);
+        	call Timer2.startOneShot(NODE_DELAY);
         }
     }
 
@@ -118,42 +121,39 @@ implementation {
             return;
         }
         if(subscribeAcked == TRUE) {
-            dbg("t3_fired", "Node %hu is already subscribed, waiting for messages\n", TOS_NODE_ID);
+            printf("Node %d is already subscribed, waiting for messages\n", TOS_NODE_ID);
             if(TOS_NODE_ID == 2) {
                 // Send a PUB message
                 pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
                 msg->type = PUB;
                 msg->sender = TOS_NODE_ID;
-                msg->topic = call Random.rand16() % 3; // 3 is the number of topics
-                msg->payload = call Random.rand16() % 100; // 100 is the maximum payload
+                msg->topic = call Random.rand16() % NUM_TOPIC;
+                msg->payload = call Random.rand16() % MAX_PAYLOAD;
                 generate_send(PAN_COORDINATOR_ID, &packet);
             }
             return;
         } else {
         	pub_sub_msg_t* msg = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg("t3_fired", "Node %hu is not subscribed, sending a subscription request\n", TOS_NODE_ID);
+        	printf("Node %d is not subscribed, sending a subscription request\n", TOS_NODE_ID);
         	msg->type = SUB;
         	msg->sender = TOS_NODE_ID;
-        	msg->topic = call Random.rand16() % 3; // 3 is the number of topics
+        	msg->topic = call Random.rand16() % NUM_TOPIC;
         	generate_send(PAN_COORDINATOR_ID, &packet);
-        	call Timer3.startOneShot(2000);
+        	call Timer3.startOneShot(NODE_DELAY);
         }
     }
 
     bool actual_send(uint16_t address, message_t* msg) {
-        dbg("actual_send", "Sending message\n");
         if(locked == TRUE) {
-            dbg_clear("actual_send", "\tLocked\n");
+            printf("Sending Message: Locked\n");
             return FALSE;
         }
         else {
             pub_sub_msg_t* psm = (pub_sub_msg_t*) call Packet.getPayload(msg, sizeof(pub_sub_msg_t));
             if(call AMSend.send(address, msg, sizeof(pub_sub_msg_t)) == SUCCESS) {
-                dbg("actual_send", "Packet passed to lower layer successfully!\n");
-	     	    dbg("actual_send",">>>Packet\n \t Payload length %hhu \n", call Packet.payloadLength(msg));
-	     	    dbg_clear("actual_send","\t Destination Address: %hu\n", address);
-		 	    dbg_clear("actual_send", "\t Type: %hhu (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)\n", psm->type);
-		 	    dbg_clear("actual_send","\t Payload Sent\n" );
+                printf("Packet passed to lower layer");
+	     	    printf(" -Dest: %d", address);
+		 	    printf(" -Type: %d (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)\n", psm->type);
                 locked = TRUE;
                 return TRUE;
             }
@@ -169,15 +169,15 @@ implementation {
         if (err == SUCCESS) {
             locked = FALSE;
             if(TOS_NODE_ID == PAN_COORDINATOR_ID) {
-            	dbg("start_done","PAN Coordinator ActiveMessageControl Started!\n",TOS_NODE_ID);
+            	printf("PAN Coordinator ActiveMessageControl Started!\n",TOS_NODE_ID);
                 initClientList();
-                call Timer1.startPeriodic(MESSAGE_DELAY);
+                call Timer1.startOneShot(MESSAGE_DELAY);
             }
             else {
-            	dbg("start_done","Node %hu ActiveMessageControl Started!\n",TOS_NODE_ID);
+            	printf("Node %d ActiveMessageControl Started!\n",TOS_NODE_ID);
                 connectAcked = FALSE;
                 subscribeAcked = FALSE;
-                call Timer2.startOneShot(2000);
+                call Timer2.startOneShot(NODE_DELAY);
             }
         } else {
             call AMControl.start(); // try again
@@ -189,11 +189,9 @@ implementation {
     event void AMSend.sendDone(message_t* bufPtr, error_t error) {
 	    if (&queued_packet == bufPtr && error == SUCCESS) {
 	        locked = FALSE;
-            dbg("actual_send", "Packet sent...\n");
-            dbg_clear("actual_send", " at time %s \n", sim_time_string());
         }
         else {
-            dbgerror("actual_send", "Send done error!\n");
+            printf("Send done error!\n");
         }
     }
 
@@ -227,7 +225,7 @@ implementation {
             return;
         } else {
         	pub_sub_msg_t* ack = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg("handle_connect", "Received connection request from client %hu, sending connection ack\n", msg->sender);
+        	printf("Received connection request from client %d, sending connection ack\n", msg->sender);
         	client_list[msg->sender-1].is_connected = TRUE;
         	ack->type = CONNACK;
         	add_message(&message_list, *ack, msg->sender);
@@ -238,7 +236,7 @@ implementation {
         if(TOS_NODE_ID == PAN_COORDINATOR_ID) { // only clients can receive connection acks
             return;
         }
-        dbg("handle_connack", "Received connection ack from PAN Coordinator\n");
+        printf("Received connection ack from PAN Coordinator\n");
         connectAcked = TRUE; // TODO: this must be reset to FALSE each time a new connection is attempted
     }
 
@@ -246,13 +244,13 @@ implementation {
         if(TOS_NODE_ID != PAN_COORDINATOR_ID) { // only the PAN Coordinator can receive subscriptions
             return;
         }
-        dbg("handle_subscribe", "Received subscription request from client %hu\n, on topic %hhu\n", msg->sender, msg->topic);
+        printf("Received subscription request from client %d, on topic %d\n", msg->sender, msg->topic);
         if(client_list[msg->sender-1].is_connected == FALSE) {
-            dbg_clear("handle_subscribe", "\tClient is not connected, ignoring subscription request\n");
+            printf(" Client is not connected, ignoring subscription request\n");
             return; // client is not connected then the subscription is invalid
         } else {
         	pub_sub_msg_t* ack = (pub_sub_msg_t*) call Packet.getPayload(&packet, sizeof(pub_sub_msg_t));
-        	dbg_clear("handle_subscribe", "\tClient is connected, sending subscription ack\n");
+        	printf(" Client is connected, sending subscription ack\n");
         	client_list[msg->sender-1].is_subscribed = TRUE;
         	client_list[msg->sender-1].topic = msg->topic;
         	ack->type = SUBACK;
@@ -264,17 +262,17 @@ implementation {
         if(TOS_NODE_ID == PAN_COORDINATOR_ID) { // only clients can receive subscription acks
             return;
         }
-        dbg("handle_suback", "Received subscription ack from PAN Coordinator\n");
+        printf("Received subscription ack from PAN Coordinator\n");
         subscribeAcked = TRUE; // TODO: this must be reset to FALSE each time a new subscription is attempted
     }
 
     void handlePublish(pub_sub_msg_t* msg) {
         if(TOS_NODE_ID == PAN_COORDINATOR_ID) {
-            dbg("handle_publish", "Received publish request from client %hu\n, on topic %hhu\n with payload %hu\n", msg->sender, msg->topic, msg->payload);
-            dbg_clear("handle_publish", "\tAdding messages for clients subscribed to topic %hhu\n", msg->topic);
+            printf("Received publish request from client %d, on topic %d with payload %d\n", msg->sender, msg->topic, msg->payload);
+            printf(" Adding messages for clients subscribed to topic %d\n", msg->topic);
             addClientMatchingTopic(client_list, *msg);
         } else {
-            dbg("handle_publish", "Received publish request from PAN Coordinator on topic %hhu\n with payload %hu\n", msg->topic, msg->payload);
+            printf("Received publish from PAN Coordinator on topic %d with payload %d\n", msg->topic, msg->payload);
             // TODO: ??
         }
     }

@@ -14,6 +14,8 @@ implementation {
   components new TimerMilliC() as Timer3;
   components LedsC;
   components RandomC;
+  components SerialPrintfC;
+  components SerialStartC;
 
   /****** INTERFACES *****/
   //Boot interface
