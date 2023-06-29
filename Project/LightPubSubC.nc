@@ -310,28 +310,21 @@ implementation {
 }
 
 	/*
-    	* Pops the last message from the list
+    	* Pops the first message from the list
     	* Assigns the message to the message pointer
     	* Returns the destination of the message
 	*/
 	uint16_t pop_message(message_list_t** list, pub_sub_msg_t* message) {
-    	if (is_empty_message_list(list)) {
-        	return 0;
-    	} else {
-        	message_list_t* current = *list;
-        	message_list_t* previous = NULL;
-        	while (current->next != NULL) {
-            	previous = current;
-            	current = current->next;
-        	}
-        	if(previous != NULL) {
-        		previous->next = NULL;
-        	} else {
-        		*list = NULL; // TODO: check this line
-        	}
-        	*message = current->msg;
-        	return current->destination;
-    	}
+        if(is_empty_message_list(list)) {
+            return 0;
+        } else {
+            message_list_t* current = *list;
+            uint16_t destination = current->destination;
+            *message = current->msg;
+            *list = current->next;
+            free(current);
+            return destination;
+        }
 	}
 
 	/*

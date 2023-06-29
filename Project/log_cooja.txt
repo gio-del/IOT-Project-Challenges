@@ -1,0 +1,141 @@
+00:04.161	ID:8	Node 8 ActiveMessageControl Started!
+00:04.325	ID:2	Node 2 ActiveMessageControl Started!
+00:04.339	ID:6	Node 6 ActiveMessageControl Started!
+00:04.437	ID:4	Node 4 ActiveMessageControl Started!
+00:04.471	ID:1	PAN Coordinator ActiveMessageControl Started!
+00:04.490	ID:7	Node 7 ActiveMessageControl Started!
+00:04.797	ID:9	Node 9 ActiveMessageControl Started!
+00:04.804	ID:5	Node 5 ActiveMessageControl Started!
+00:04.988	ID:3	Node 3 ActiveMessageControl Started!
+00:11.976	ID:8	Node 8 is not connected, sending a connection request
+00:12.140	ID:2	Node 2 is not connected, sending a connection request
+00:12.154	ID:6	Node 6 is not connected, sending a connection request
+00:12.252	ID:4	Node 4 is not connected, sending a connection request
+00:12.275	ID:8	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.277	ID:1	Received connection request from client 8, sending connection ack
+00:12.305	ID:7	Node 7 is not connected, sending a connection request
+00:12.382	ID:1	PAN Coordinator has a message to send
+00:12.438	ID:2	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.445	ID:1	Received connection request from client 2, sending connection ack
+00:12.453	ID:6	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.455	ID:1	Received connection request from client 6, sending connection ack
+00:12.550	ID:4	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.558	ID:1	Received connection request from client 4, sending connection ack
+00:12.604	ID:7	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.612	ID:9	Node 9 is not connected, sending a connection request
+00:12.613	ID:1	Received connection request from client 7, sending connection ack
+00:12.619	ID:5	Node 5 is not connected, sending a connection request
+00:12.681	ID:1	Packet passed to lower layer -Dest: 8 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.685	ID:8	Received connection ack from PAN Coordinator
+00:12.803	ID:3	Node 3 is not connected, sending a connection request
+00:12.911	ID:9	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.915	ID:1	Received connection request from client 9, sending connection ack
+00:12.917	ID:5	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:12.927	ID:1	Received connection request from client 5, sending connection ack
+00:13.102	ID:3	Packet passed to lower layer -Dest: 1 -Type: 0 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:13.107	ID:1	Received connection request from client 3, sending connection ack
+00:13.262	ID:1	PAN Coordinator has a message to send
+00:13.561	ID:1	Packet passed to lower layer -Dest: 2 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:13.564	ID:2	Received connection ack from PAN Coordinator
+00:14.142	ID:1	PAN Coordinator has a message to send
+00:14.441	ID:6	Received connection ack from PAN Coordinator
+00:14.441	ID:1	Packet passed to lower layer -Dest: 6 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:15.022	ID:1	PAN Coordinator has a message to send
+00:15.321	ID:4	Received connection ack from PAN Coordinator
+00:15.321	ID:1	Packet passed to lower layer -Dest: 4 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:15.902	ID:1	PAN Coordinator has a message to send
+00:16.200	ID:1	Packet passed to lower layer -Dest: 7 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:16.206	ID:7	Received connection ack from PAN Coordinator
+00:16.782	ID:1	PAN Coordinator has a message to send
+00:17.080	ID:1	Packet passed to lower layer -Dest: 9 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:17.089	ID:9	Received connection ack from PAN Coordinator
+00:17.662	ID:1	PAN Coordinator has a message to send
+00:17.960	ID:1	Packet passed to lower layer -Dest: 5 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:17.965	ID:5	Received connection ack from PAN Coordinator
+00:18.542	ID:1	PAN Coordinator has a message to send
+00:18.840	ID:1	Packet passed to lower layer -Dest: 3 -Type: 1 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:18.844	ID:3	Received connection ack from PAN Coordinator
+00:19.791	ID:8	Node 8 is already connected, sending a subscription request
+00:19.955	ID:2	Node 2 is already connected, sending a subscription request
+00:19.969	ID:6	Node 6 is already connected, sending a subscription request
+00:20.067	ID:4	Node 4 is already connected, sending a subscription request
+00:20.120	ID:7	Node 7 is already connected, sending a subscription request
+00:20.427	ID:9	Node 9 is already connected, sending a subscription request
+00:20.433	ID:5	Node 5 is already connected, sending a subscription request
+00:20.618	ID:3	Node 3 is already connected, sending a subscription request
+00:27.605	ID:8	Node 8 is not subscribed, sending a subscription request
+00:27.769	ID:2	Node 2 is not subscribed, sending a subscription request
+00:27.783	ID:6	Node 6 is not subscribed, sending a subscription request
+00:27.881	ID:4	Node 4 is not subscribed, sending a subscription request
+00:27.905	ID:8	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:27.908	ID:1	Received subscription request from client 8, on topic 2
+00:27.909	ID:1	 Client is connected, sending subscription ack
+00:27.918	ID:1	PAN Coordinator has a message to send
+00:27.934	ID:7	Node 7 is not subscribed, sending a subscription request
+00:28.069	ID:2	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.073	ID:1	Received subscription request from client 2, on topic 0
+00:28.074	ID:1	 Client is connected, sending subscription ack
+00:28.082	ID:6	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.089	ID:1	Received subscription request from client 6, on topic 1
+00:28.090	ID:1	 Client is connected, sending subscription ack
+00:28.180	ID:4	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.186	ID:1	Received subscription request from client 4, on topic 0
+00:28.187	ID:1	 Client is connected, sending subscription ack
+00:28.216	ID:8	Received subscription ack from PAN Coordinator
+00:28.217	ID:1	Packet passed to lower layer -Dest: 8 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.234	ID:7	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.241	ID:9	Node 9 is not subscribed, sending a subscription request
+00:28.243	ID:1	Received subscription request from client 7, on topic 1
+00:28.245	ID:1	 Client is connected, sending subscription ack
+00:28.248	ID:5	Node 5 is not subscribed, sending a subscription request
+00:28.432	ID:3	Node 3 is not subscribed, sending a subscription request
+00:28.540	ID:9	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.547	ID:5	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.550	ID:1	Received subscription request from client 9, on topic 1
+00:28.552	ID:1	 Client is connected, sending subscription ack
+00:28.556	ID:1	Received subscription request from client 5, on topic 2
+00:28.558	ID:1	 Client is connected, sending subscription ack
+00:28.732	ID:3	Packet passed to lower layer -Dest: 1 -Type: 2 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:28.733	ID:1	Received subscription request from client 3, on topic 2
+00:28.735	ID:1	 Client is connected, sending subscription ack
+00:28.797	ID:1	PAN Coordinator has a message to send
+00:29.097	ID:1	Packet passed to lower layer -Dest: 2 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:29.097	ID:2	Received subscription ack from PAN Coordinator
+00:29.677	ID:1	PAN Coordinator has a message to send
+00:29.976	ID:1	Packet passed to lower layer -Dest: 6 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:29.981	ID:6	Received subscription ack from PAN Coordinator
+00:30.557	ID:1	PAN Coordinator has a message to send
+00:30.856	ID:1	Packet passed to lower layer -Dest: 4 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:30.861	ID:4	Received subscription ack from PAN Coordinator
+00:31.437	ID:1	PAN Coordinator has a message to send
+00:31.735	ID:1	Packet passed to lower layer -Dest: 7 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:31.741	ID:7	Received subscription ack from PAN Coordinator
+00:32.317	ID:1	PAN Coordinator has a message to send
+00:32.615	ID:1	Packet passed to lower layer -Dest: 9 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:32.622	ID:9	Received subscription ack from PAN Coordinator
+00:33.197	ID:1	PAN Coordinator has a message to send
+00:33.495	ID:1	Packet passed to lower layer -Dest: 5 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:33.503	ID:5	Received subscription ack from PAN Coordinator
+00:34.077	ID:1	PAN Coordinator has a message to send
+00:34.376	ID:1	Packet passed to lower layer -Dest: 3 -Type: 3 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:34.378	ID:3	Received subscription ack from PAN Coordinator
+00:35.421	ID:8	Node 8 is already subscribed, waiting for messages
+00:35.584	ID:2	Node 2 is already subscribed, waiting for messages
+00:35.599	ID:6	Node 6 is already subscribed, waiting for messages
+00:35.696	ID:4	Node 4 is already subscribed, waiting for messages
+00:35.750	ID:7	Node 7 is already subscribed, waiting for messages
+00:35.883	ID:2	Packet passed to lower layer -Dest: 1 -Type: 4 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:35.886	ID:1	Received publish request from client 2, on topic 1 with payload 63
+00:35.888	ID:1	 Adding messages for clients subscribed to topic 1
+00:36.056	ID:9	Node 9 is already subscribed, waiting for messages
+00:36.063	ID:5	Node 5 is already subscribed, waiting for messages
+00:36.129	ID:1	PAN Coordinator has a message to send
+00:36.247	ID:3	Node 3 is already subscribed, waiting for messages
+00:36.428	ID:1	Packet passed to lower layer -Dest: 6 -Type: 4 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:36.431	ID:6	Received publish from PAN Coordinator on topic 1 with payload 63
+00:37.008	ID:1	PAN Coordinator has a message to send
+00:37.307	ID:1	Packet passed to lower layer -Dest: 7 -Type: 4 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:37.312	ID:7	Received publish from PAN Coordinator on topic 1 with payload 63
+00:37.888	ID:1	PAN Coordinator has a message to send
+00:38.187	ID:1	Packet passed to lower layer -Dest: 9 -Type: 4 (0 = CONN, 1 = CONNACK, 2 = SUB, 3 = SUBACK, 4 = PUB)
+00:38.194	ID:9	Received publish from PAN Coordinator on topic 1 with payload 63
